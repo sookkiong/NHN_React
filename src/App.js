@@ -1,19 +1,29 @@
 import "./App.css";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/header";
+import GlobalStyle from "./GlobalStyle";
+import { useRecoilState } from "recoil";
+import { langOnState } from "./store/state";
+import styled from "styled-components";
+import MainPage from "./components/MainPage";
 
 function App() {
-  let navigate = useNavigate();
-
+  const [, setLangOn] = useRecoilState(langOnState);
+  const handleClick = () => {
+    setLangOn(false);
+  };
   return (
-    <div className="App">
-      <Header />
-      <div style={{ height: "100vh", background: "red" }}>
+    <>
+      <GlobalStyle />
+      <Container onClick={handleClick}>
+        <Header />
         <Routes>
           <Route
             path="/"
             element={
-              <div style={{ paddingTop: "500px" }}>메인 페이지 입니다</div>
+              <div>
+                <MainPage />
+              </div>
             }
           />
           <Route path="/intro" element={<div>소개 페이지 입니다</div>} />
@@ -21,9 +31,14 @@ function App() {
           <Route path="/article" element={<div>보도자료 페이지 입니다</div>} />
           <Route path="/recruit" element={<div>채용 페이지 입니다 😀</div>} />
         </Routes>
-      </div>
-    </div>
+      </Container>
+    </>
   );
 }
 
 export default App;
+
+const Container = styled.div`
+  height: 100vh;
+  -background: #e72f2c;
+`;

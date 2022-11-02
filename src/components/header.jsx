@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import { langOnState } from "../store/state";
+import { langOnState, sideOnState } from "../store/state";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -14,6 +14,7 @@ const Header = () => {
   ];
 
   let [langOn, setLangOn] = useRecoilState(langOnState);
+  let [sideOn, setSideOn] = useRecoilState(sideOnState);
 
   return (
     <StyledHeader>
@@ -56,7 +57,7 @@ const Header = () => {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            width: "8%",
+            width: "7%",
           }}
         >
           <SideButton
@@ -82,8 +83,16 @@ const Header = () => {
               </ul>
             ) : null}
           </SideButton>
-          <SideButton id="smallPage">
+
+          <SideButton
+            id="smallPage"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSideOn(!sideOn);
+            }}
+          >
             <img src="/img/side.png" />
+            {sideOn ? <SideInfo /> : null}
           </SideButton>
         </div>
       </nav>
@@ -98,7 +107,7 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: center;
   width: 100%;
-  padding-top: 50px;
+  padding-top: 60px;
 `;
 
 const MainLogo = styled.img`
@@ -112,6 +121,7 @@ const SideButton = styled.button`
   &#lang {
     position: relative;
   }
+  cursor: pointer;
 `;
 
 const LangList = styled.li`
@@ -123,4 +133,14 @@ const LangList = styled.li`
     text-decoration: underline;
     cursor: pointer;
   }
+`;
+
+const SideInfo = styled.div`
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 20%;
+  height: 100%;
+  background: #e72f2c;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 40%);
 `;

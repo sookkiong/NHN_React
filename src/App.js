@@ -3,15 +3,18 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/header";
 import GlobalStyle from "./GlobalStyle";
 import { useRecoilState } from "recoil";
-import { langOnState } from "./store/state";
+import { langOnState, sideOnState } from "./store/state";
 import styled from "styled-components";
 import MainPage from "./components/MainPage";
 
 function App() {
   const [, setLangOn] = useRecoilState(langOnState);
+  const [, setSideOn] = useRecoilState(sideOnState);
   const handleClick = () => {
     setLangOn(false);
+    setSideOn(false);
   };
+
   return (
     <>
       <GlobalStyle />

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import { langOnState } from "../store/state";
 
 const MainPage = () => {
   const list = [1, 2, 3];
@@ -54,31 +53,75 @@ const MainPage = () => {
 
         <footer
           style={{
-            border: "1px solid #fff",
-
-            display: "flex",
-            alignItems: "flex-end",
+            width: "65%",
+            paddingTop: "50px",
           }}
         >
-          <div>
-            <div id="f_left">
-              <ul className="f_link">
-                <li>개인정보처리방침</li>
-                <li>대표메일</li>
-              </ul>
-              <ul className="sns">
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div id="f_left" style={{ display: "flex" }}>
+              <ul
+                className="f_link"
+                style={{
+                  listStyle: "none",
+                  padding: "0",
+                  margin: "0",
+                  display: "flex",
+                  marginRight: "45px",
+                  color: "#fff",
+                  fontSize: "15px",
+                }}
+              >
                 <li
                   style={{
-                    background: `url("/img/fsns1_1.png") no-repeat center center`,
-                    width: "20px",
-                    height: "20px",
+                    marginRight: "20px",
+                  }}
+                >
+                  개인정보처리방침
+                </li>
+                <li>대표메일</li>
+              </ul>
+              <ul
+                className="sns"
+                style={{
+                  listStyle: "none",
+                  padding: "0",
+                  margin: "0",
+                  display: "flex",
+                  marginRight: "30px",
+                  color: "#fff",
+                }}
+              >
+                <li
+                  style={{
+                    background: `url("/img/fsns1_w.png") no-repeat center center`,
+                    backgroundSize: "contain",
+                    width: "18px",
+                    height: "100%",
+                    marginRight: "23px",
                   }}
                 ></li>
-                <li></li>
-                <li></li>
+                <li
+                  style={{
+                    background: `url("/img/fsns2_w.png") no-repeat center center`,
+                    backgroundSize: "contain",
+                    width: "18px",
+                    height: "100%",
+                    marginRight: "20px",
+                  }}
+                ></li>
+                <li
+                  style={{
+                    background: `url("/img/fsns3_w.png") no-repeat center center`,
+                    backgroundSize: "50%",
+                    width: "18px",
+                    height: "100%",
+                  }}
+                ></li>
               </ul>
             </div>
-            <div id="f_right"></div>
+            <div id="f_right" style={{ color: "#fff", fontSize: "14px" }}>
+              Copyright ⓒ NHN Co., Ltd. All rights reserved.
+            </div>
           </div>
         </footer>
       </MainStyle>
@@ -96,10 +139,14 @@ const MainStyle = styled.div`
   justify-content: center;
   border: 1px solid #fff;
   background: #e72f2c;
+  overflow-y: hidden;
+  padding-top: 50px;
+  border: none;
 `;
 
 const CarouselBox = styled.div`
   width: 65%;
-  height: 62%;
+  height: 70%;
   background: #000;
+  border-bottom: 1px solid #fff;
 `;

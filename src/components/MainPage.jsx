@@ -51,79 +51,25 @@ const MainPage = () => {
           </div>
         </CarouselBox>
 
-        <footer
-          style={{
-            width: "65%",
-            paddingTop: "50px",
-          }}
-        >
+        <Footer>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <div id="f_left" style={{ display: "flex" }}>
-              <ul
-                className="f_link"
-                style={{
-                  listStyle: "none",
-                  padding: "0",
-                  margin: "0",
-                  display: "flex",
-                  marginRight: "45px",
-                  color: "#fff",
-                  fontSize: "15px",
-                }}
-              >
-                <li
-                  style={{
-                    marginRight: "20px",
-                  }}
-                >
-                  개인정보처리방침
-                </li>
-                <li>대표메일</li>
-              </ul>
-              <ul
-                className="sns"
-                style={{
-                  listStyle: "none",
-                  padding: "0",
-                  margin: "0",
-                  display: "flex",
-                  marginRight: "30px",
-                  color: "#fff",
-                }}
-              >
-                <li
-                  style={{
-                    background: `url("/img/fsns1_w.png") no-repeat center center`,
-                    backgroundSize: "contain",
-                    width: "18px",
-                    height: "100%",
-                    marginRight: "23px",
-                  }}
-                ></li>
-                <li
-                  style={{
-                    background: `url("/img/fsns2_w.png") no-repeat center center`,
-                    backgroundSize: "contain",
-                    width: "18px",
-                    height: "100%",
-                    marginRight: "20px",
-                  }}
-                ></li>
-                <li
-                  style={{
-                    background: `url("/img/fsns3_w.png") no-repeat center center`,
-                    backgroundSize: "50%",
-                    width: "18px",
-                    height: "100%",
-                  }}
-                ></li>
-              </ul>
+              <CustomUI id="f_link">
+                <LinkList id="f_list1">개인정보처리방침</LinkList>
+                <LinkList id="f_list2">|</LinkList>
+                <LinkList>대표메일</LinkList>
+              </CustomUI>
+              <CustomUI id="sns">
+                <SnsList bg='"/img/fsns1_w.png"' mr="23px"></SnsList>
+                <SnsList bg='"/img/fsns2_w.png"' mr="20px"></SnsList>
+                <SnsList bg='"/img/fsns3_w.png"'></SnsList>
+              </CustomUI>
             </div>
             <div id="f_right" style={{ color: "#fff", fontSize: "14px" }}>
               Copyright ⓒ NHN Co., Ltd. All rights reserved.
             </div>
           </div>
-        </footer>
+        </Footer>
       </MainStyle>
     </>
   );
@@ -149,4 +95,41 @@ const CarouselBox = styled.div`
   height: 70%;
   background: #000;
   border-bottom: 1px solid #fff;
+`;
+
+const Footer = styled.footer`
+  width: 65%;
+  padding-top: 50px;
+`;
+
+const CustomUI = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  color: #fff;
+  margin-right: 30px;
+  &#f_link {
+    margin-right: 30px;
+    font-size: 15px;
+  }
+`;
+
+const SnsList = styled.li`
+  background: url(${(props) => props.bg}) no-repeat center center;
+  background-size: contain;
+  width: 18px;
+  height: 100%;
+  margin-right: ${(props) => props.mr};
+`;
+
+const LinkList = styled.li`
+  &#f_list1 {
+    margin-right: 20px;
+  }
+  &#f_list2 {
+    margin-right: 20px;
+    font-size: 12px;
+    line-height: 20px;
+  }
 `;

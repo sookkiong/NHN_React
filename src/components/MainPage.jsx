@@ -12,42 +12,26 @@ const MainPage = () => {
       <MainStyle>
         <CarouselBox>
           <div className="flexbox" style={{ display: "flex", height: "100%" }}>
-            <div
+            <SlideBox
               className="img"
-              style={{
-                background: `url("/img/slide1_img.png") no-repeat right bottom`,
-                backgroundSize: "63%",
-                width: "100%",
-                flex: "none",
-              }}
-            ></div>
-            <div
+              bg="'/img/slide1_img.png'"
+              size="63%"
+            ></SlideBox>
+            <SlideBox
               className="img"
-              style={{
-                background: `url("/img/slide2_img.png") no-repeat right center`,
-                backgroundSize: "44%",
-                width: "100%",
-                flex: "none",
-              }}
-            ></div>
-            <div
+              bg="'/img/slide2_img.png'"
+              size="44%"
+            ></SlideBox>
+            <SlideBox
               className="img"
-              style={{
-                background: `url("/img/slide3_img.png") no-repeat right center`,
-                backgroundSize: "50%",
-                width: "100%",
-                flex: "none",
-              }}
-            ></div>
-            <div
+              bg="'/img/slide3_img.png'"
+              size="63%"
+            ></SlideBox>
+            <SlideBox
               className="img"
-              style={{
-                background: `url("/img/slide4_img.png") no-repeat right center`,
-                backgroundSize: "50%",
-                width: "100%",
-                flex: "none",
-              }}
-            ></div>
+              bg="'/img/slide4_img.png'"
+              size="55%"
+            ></SlideBox>
           </div>
         </CarouselBox>
 
@@ -132,4 +116,11 @@ const LinkList = styled.li`
     font-size: 12px;
     line-height: 20px;
   }
+`;
+
+const SlideBox = styled.div`
+  background: url(${(props) => props.bg}) no-repeat right bottom;
+  background-size: ${(props) => props.size};
+  width: 100%;
+  flex: none;
 `;

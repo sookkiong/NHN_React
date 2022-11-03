@@ -6,6 +6,7 @@ import { useRecoilState } from "recoil";
 import { langOnState, sideOnState } from "./store/state";
 import styled from "styled-components";
 import MainPage from "./components/MainPage";
+import IntroPage from "./components/IntroPage";
 
 function App() {
   const [, setLangOn] = useRecoilState(langOnState);
@@ -21,15 +22,8 @@ function App() {
       <Container onClick={handleClick}>
         <Header />
         <Routes>
-          <Route
-            path="/"
-            element={
-              <div>
-                <MainPage />
-              </div>
-            }
-          />
-          <Route path="/intro" element={<div>소개 페이지 입니다</div>} />
+          <Route path="/" element={<MainPage />} />
+          <Route path="/intro" element={<IntroPage />} />
           <Route path="/service" element={<div>서비스 페이지 입니다</div>} />
           <Route path="/article" element={<div>보도자료 페이지 입니다</div>} />
           <Route path="/recruit" element={<div>채용 페이지 입니다 😀</div>} />

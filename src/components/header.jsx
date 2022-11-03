@@ -38,17 +38,9 @@ const Header = () => {
           }}
         >
           {tabList.map((tab) => (
-            <li
-              style={{
-                width: "25%",
-                textAlign: "center",
-                color: "#fff",
-                fontWeight: "500",
-              }}
-              onClick={() => navigate(`/${tab.id}`)}
-            >
+            <MenuList onClick={() => navigate(`/${tab.id}`)}>
               {tab.name}
-            </li>
+            </MenuList>
           ))}
         </ul>
 
@@ -107,7 +99,8 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: center;
   width: 100%;
-  padding-top: 60px;
+  padding: 48px 0;
+  z-index: 1;
 `;
 
 const MainLogo = styled.img`
@@ -143,4 +136,18 @@ const SideInfo = styled.div`
   height: 100%;
   background: #e72f2c;
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 40%);
+`;
+
+const MenuList = styled.li`
+  width: 20%;
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  &:hover {
+    background: #fff;
+    color: #e72f2c;
+    border-radius: 14px;
+    font-weight: 600;
+  }
 `;

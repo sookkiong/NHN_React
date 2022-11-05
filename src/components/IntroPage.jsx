@@ -20,8 +20,28 @@ const IntroPage = () => {
         </IntroInner>
       </IntroTop>
 
-      <div style={{ position: "fixed", zIndex: "100", marginTop: "800px" }}>
-        소개 글입니다요
+      <div style={{ zIndex: "100", marginTop: "200px" }}>
+        <p>
+          NHN은 게임, 결제, 엔터테인먼트, IT, 광고 등 IT 기반의 다양한
+          사업분야에 진출, 성장해 나가고 있는 글로벌 IT 기업입니다.
+        </p>
+        <p>
+          2013년 8월 1일, 대한민국 최대 인터넷 기업인 NHN(주)에서 분할해
+          'NHN엔터테인먼트'라는 사명으로 출범했으며, 사명을 NHN으로 다시 바꾸며
+          한국 IT 기업의 상진인 'NHN'의 가치를 계승해 글로벌 IT기술 기업으로
+          재도약하고 있습니다. 또한 클라우드/커머스/콘텐츠/페이먼트 4대
+          핵심사업을 주축으로 2030년까지 글로벌 테크 컴퍼니로의 성장 비전을
+          선포했습니다.
+        </p>
+      </div>
+
+      <div style={{ marginTop: "100px" }}>
+        <span>NHN이 제공하는 결제 서비스</span>
+        <div></div>
+        <p>
+          <span>Toward Art, Science &amp; Tech</span>
+          새로운 세상을 만들기 위해 도전합니다.
+        </p>
       </div>
     </>
   );
@@ -31,9 +51,8 @@ export default IntroPage;
 
 const IntroTop = styled.div`
   width: 100%;
-  height: 85vh;
+  height: 85%;
   background: #e72f2c;
-  position: fixed;
   background: url("./img/introbg.png") no-repeat center bottom;
   background-size: cover;
 `;

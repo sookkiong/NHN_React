@@ -37,5 +37,4 @@ export default App;
 
 const Container = styled.div`
   height: 100vh;
-  -background: #e72f2c;
 `;

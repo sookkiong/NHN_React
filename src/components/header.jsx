@@ -95,12 +95,14 @@ const Header = () => {
 export default Header;
 
 const StyledHeader = styled.header`
-  position: fixed;
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 48px 0;
+  padding: 60px 0;
   z-index: 1;
+  background: #e72f2c;
+  position: absolute;
+  top: 0;
 `;
 
 const MainLogo = styled.img`

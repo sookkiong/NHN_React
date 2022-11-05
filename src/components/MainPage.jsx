@@ -70,7 +70,8 @@ const MainStyle = styled.div`
   border: 1px solid #fff;
   background: #e72f2c;
   overflow-y: hidden;
-  padding-top: 50px;
+  overflow-x: hidden;
+  padding-top: 60px;
   border: none;
 `;
 

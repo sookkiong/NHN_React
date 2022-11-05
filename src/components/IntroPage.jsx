@@ -20,12 +20,12 @@ const IntroPage = () => {
         </IntroInner>
       </IntroTop>
 
-      <div style={{ zIndex: "100", marginTop: "200px" }}>
-        <p>
+      <Para1>
+        <p style={{ fontSize: "32px", fontWeight: "500" }}>
           NHN은 게임, 결제, 엔터테인먼트, IT, 광고 등 IT 기반의 다양한
           사업분야에 진출, 성장해 나가고 있는 글로벌 IT 기업입니다.
         </p>
-        <p>
+        <p style={{ fontSize: "16px", lineHeight: "28px", color: "#7c7c7c" }}>
           2013년 8월 1일, 대한민국 최대 인터넷 기업인 NHN(주)에서 분할해
           'NHN엔터테인먼트'라는 사명으로 출범했으며, 사명을 NHN으로 다시 바꾸며
           한국 IT 기업의 상진인 'NHN'의 가치를 계승해 글로벌 IT기술 기업으로
@@ -33,15 +33,87 @@ const IntroPage = () => {
           핵심사업을 주축으로 2030년까지 글로벌 테크 컴퍼니로의 성장 비전을
           선포했습니다.
         </p>
-      </div>
+      </Para1>
 
-      <div style={{ marginTop: "100px" }}>
-        <span>NHN이 제공하는 결제 서비스</span>
-        <div></div>
-        <p>
-          <span>Toward Art, Science &amp; Tech</span>
+      <div
+        style={{
+          marginTop: "10%",
+          width: "1100px",
+          position: "absolute",
+          right: "0",
+          textAlign: "right",
+        }}
+      >
+        <span
+          style={{
+            display: "block",
+            marginBottom: "10px",
+            marginRight: "15px",
+            color: "#7c7c7c",
+          }}
+        >
+          NHN이 제공하는 결제 서비스
+        </span>
+        <div
+          style={{
+            width: "100%",
+            height: "48vh",
+            background: `url("./img/sect2img.jpg") no-repeat center center`,
+            backgroundSize: "cover",
+            position: "relative",
+          }}
+        >
+          <span
+            style={{
+              display: "block",
+              position: "absolute",
+              left: "0",
+              bottom: "-30px",
+              color: "#7c7c7c",
+            }}
+          >
+            PAYCO
+          </span>
+        </div>
+
+        <p
+          style={{
+            fontSize: "32px",
+            fontWeight: "500",
+            marginRight: "3%",
+            marginTop: "80px",
+          }}
+        >
+          <span style={{ color: "#e72f2c", display: "block" }}>
+            Toward Art, Science &amp; Tech
+          </span>
           새로운 세상을 만들기 위해 도전합니다.
         </p>
+      </div>
+
+      <div style={{ position: "absolute", top: "2400px", left: "10%" }}>
+        <span>Corporate History</span>
+        <div>
+          <div id="box1">
+            <span>2013</span>
+            <div></div>
+            <div>
+              <div>
+                <img />
+              </div>
+              <table>
+                <tr>
+                  <td>AUG</td>
+                  <td>NHN(주)에서 NHN엔터테인먼트(주)로 인적분할</td>
+                </tr>
+                <tr>
+                  <td>OCT</td>
+                  <td>웹툰 서비스 코미코(Comico) 출시</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
@@ -99,4 +171,11 @@ const TabList = styled.li`
     text-decoration: underline;
     font-weight: 500;
   }
+`;
+
+const Para1 = styled.div`
+  z-index: 100;
+  width: 620px;
+  margin-top: 10%;
+  margin-left: 10%;
 `;

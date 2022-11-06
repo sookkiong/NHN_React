@@ -121,7 +121,7 @@ const IntroPage = () => {
           </span>
 
           <div>
-            {/* <HistoryContent
+            <HistoryContent
               id="left"
               year="2013"
               img="history1"
@@ -129,83 +129,42 @@ const IntroPage = () => {
               month2="OCT"
               sub1="NHN(주)에서 NHN엔터테인먼트(주)로 인적분할"
               sub2="웹툰 서비스 코미코(Comico) 출시"
-            /> */}
-            <HistoryContainer id="left">
-              <Year>2013</Year>
-              <HistoryBox>
-                <img src="/img/history1.jpg" />
-                <YearTable>
-                  <tr>
-                    <YearTh>AUG</YearTh>
-                    <YearTd>NHN(주)에서 NHN엔터테인먼트(주)로 인적분할</YearTd>
-                  </tr>
+            />
 
-                  <tr>
-                    <YearTh>OCT</YearTh>
-                    <YearTd>웹툰 서비스 코미코(Comico) 출시</YearTd>
-                  </tr>
-                </YearTable>
-              </HistoryBox>
-            </HistoryContainer>
+            <HistoryContent
+              id="right"
+              year="2014"
+              img="history2"
+              month1="FEB"
+              month2="DEC"
+              sub1="게임 개발 전문 자회사 설림(NHN 픽셀큐브(주))"
+              sub2="NHN CLOUD 출시"
+            />
 
-            <HistoryContainer id="right">
-              <HistoryBox id="right">
-                <img src="/img/history2.jpg" />
-                <YearTable>
-                  <tr>
-                    <YearTh id="right">
-                      게임 개발 전문 자회사 설림(NHN 픽셀큐브(주))
-                    </YearTh>
-                    <YearTd id="right">FEB</YearTd>
-                  </tr>
+            <HistoryContent
+              id="left"
+              year="2017"
+              img="history3"
+              month1="APR"
+              month2="JUL"
+              sub1="NHN페이코(주) 설립"
+              sub2="디지털 전문 광고기업 (주)NHN ACE 설립"
+            />
 
-                  <tr>
-                    <YearTh id="right">NHN CLOUD 출시</YearTh>
-                    <YearTd id="right">DEC</YearTd>
-                  </tr>
-                </YearTable>
-              </HistoryBox>
-              <Year id="right">2014</Year>
-            </HistoryContainer>
-
-            <HistoryContainer id="left">
-              <Year>2017</Year>
-              <HistoryBox>
-                <img src="/img/history3.jpg" />
-                <YearTable>
-                  <tr>
-                    <YearTh>APR</YearTh>
-                    <YearTd>NHN페이코(주) 설립</YearTd>
-                  </tr>
-
-                  <tr>
-                    <YearTh>JUL</YearTh>
-                    <YearTd>디지털 전문 광고기업 (주)NHN ACE 설립</YearTd>
-                  </tr>
-                </YearTable>
-              </HistoryBox>
-            </HistoryContainer>
-
-            <HistoryContainer id="right">
-              <HistoryBox id="right">
-                <img src="/img/history4.jpg" />
-                <YearTable>
-                  <tr>
-                    <YearTh id="right">2018 연간매출 1조원 돌파</YearTh>
-                    <YearTd id="right">FEB</YearTd>
-                  </tr>
-
-                  <tr>
-                    <YearTh id="right">NHN(주)로 사명변경</YearTh>
-                    <YearTd id="right">APR</YearTd>
-                  </tr>
-                </YearTable>
-              </HistoryBox>
-              <Year id="right">2019</Year>
-            </HistoryContainer>
+            <HistoryContent
+              id="right"
+              year="2019"
+              img="history4"
+              month1="FEB"
+              month2="APR"
+              sub1="2018 연간매출 1조원 돌파"
+              sub2="NHN(주)로 사명변경"
+            />
           </div>
         </div>
       </Para>
+
+      <Para id="ethics"></Para>
     </>
   );
 };
@@ -279,6 +238,10 @@ const Para = styled.div`
   }
   &#history {
     padding: 0 10%;
+  }
+
+  &#ethics {
+    padding: 0 20%;
   }
 `;
 

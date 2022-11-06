@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const HistoryContent = (id, year, img, month1, month2, sub1, sub2) => {
+const HistoryContent = ({ id, year, img, month1, month2, sub1, sub2 }) => {
   return id === "left" ? (
     <HistoryContainer id={id}>
       <Year>{year}</Year>

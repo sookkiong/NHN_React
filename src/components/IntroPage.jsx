@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import HistoryContent from "./History";
 
 const IntroPage = () => {
   return (
@@ -112,21 +113,28 @@ const IntroPage = () => {
               fontSize: "22px",
               fontWeight: "600",
               letterSpacing: "1px",
+              marginBottom: "40px",
+              display: "block",
             }}
           >
             Corporate History
           </span>
 
-          <div
-            style={{
-              marginTop: "40px",
-            }}
-          >
+          <div>
+            {/* <HistoryContent
+              id="left"
+              year="2013"
+              img="history1"
+              month1="AUG"
+              month2="OCT"
+              sub1="NHN(주)에서 NHN엔터테인먼트(주)로 인적분할"
+              sub2="웹툰 서비스 코미코(Comico) 출시"
+            /> */}
             <HistoryContainer id="left">
               <Year>2013</Year>
               <HistoryBox>
                 <img src="/img/history1.jpg" />
-                <table style={{ marginTop: "20px", borderSpacing: "0 10px" }}>
+                <YearTable>
                   <tr>
                     <YearTh>AUG</YearTh>
                     <YearTd>NHN(주)에서 NHN엔터테인먼트(주)로 인적분할</YearTd>
@@ -136,28 +144,64 @@ const IntroPage = () => {
                     <YearTh>OCT</YearTh>
                     <YearTd>웹툰 서비스 코미코(Comico) 출시</YearTd>
                   </tr>
-                </table>
+                </YearTable>
               </HistoryBox>
             </HistoryContainer>
 
             <HistoryContainer id="right">
               <HistoryBox id="right">
-                <img src="/img/history1.jpg" />
-                <YearTable id="right">
+                <img src="/img/history2.jpg" />
+                <YearTable>
                   <tr>
                     <YearTh id="right">
-                      NHN(주)에서 NHN엔터테인먼트(주)로 인적분할
+                      게임 개발 전문 자회사 설림(NHN 픽셀큐브(주))
                     </YearTh>
-                    <YearTd id="right">AUG</YearTd>
+                    <YearTd id="right">FEB</YearTd>
                   </tr>
 
                   <tr>
-                    <YearTh id="right">웹툰 서비스 코미코(Comico) 출시</YearTh>
-                    <YearTd id="right">OCT</YearTd>
+                    <YearTh id="right">NHN CLOUD 출시</YearTh>
+                    <YearTd id="right">DEC</YearTd>
                   </tr>
                 </YearTable>
               </HistoryBox>
-              <Year id="right">2013</Year>
+              <Year id="right">2014</Year>
+            </HistoryContainer>
+
+            <HistoryContainer id="left">
+              <Year>2017</Year>
+              <HistoryBox>
+                <img src="/img/history3.jpg" />
+                <YearTable>
+                  <tr>
+                    <YearTh>APR</YearTh>
+                    <YearTd>NHN페이코(주) 설립</YearTd>
+                  </tr>
+
+                  <tr>
+                    <YearTh>JUL</YearTh>
+                    <YearTd>디지털 전문 광고기업 (주)NHN ACE 설립</YearTd>
+                  </tr>
+                </YearTable>
+              </HistoryBox>
+            </HistoryContainer>
+
+            <HistoryContainer id="right">
+              <HistoryBox id="right">
+                <img src="/img/history4.jpg" />
+                <YearTable>
+                  <tr>
+                    <YearTh id="right">2018 연간매출 1조원 돌파</YearTh>
+                    <YearTd id="right">FEB</YearTd>
+                  </tr>
+
+                  <tr>
+                    <YearTh id="right">NHN(주)로 사명변경</YearTh>
+                    <YearTd id="right">APR</YearTd>
+                  </tr>
+                </YearTable>
+              </HistoryBox>
+              <Year id="right">2019</Year>
             </HistoryContainer>
           </div>
         </div>
@@ -279,10 +323,11 @@ const HistoryContainer = styled.div`
   display: flex;
   &#left {
     justify-content: flex-start;
+    margin-bottom: 100px;
   }
   &#right {
     justify-content: flex-end;
-    margin-top: 100px;
+    margin-bottom: 100px;
   }
 `;
 
@@ -322,13 +367,10 @@ const HistoryBox = styled.div`
 const YearTable = styled.table`
   margin-top: 20px;
   border-spacing: 0 10px;
-
-  &#right {
-  }
 `;
 
 const YearTh = styled.th`
-  margin-right: 30px;
+  margin-right: 20px;
   display: inline-block;
   font-weight: 500;
   color: #000;

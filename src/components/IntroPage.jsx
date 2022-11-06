@@ -128,33 +128,13 @@ const IntroPage = () => {
                 <img src="/img/history1.jpg" />
                 <table style={{ marginTop: "20px", borderSpacing: "0 10px" }}>
                   <tr>
-                    <th
-                      style={{
-                        marginRight: "30px",
-                        display: "inline-block",
-                        fontWeight: "500",
-                      }}
-                    >
-                      AUG
-                    </th>
-                    <td style={{ color: "#7c7c7c" }}>
-                      NHN(주)에서 NHN엔터테인먼트(주)로 인적분할
-                    </td>
+                    <YearTh>AUG</YearTh>
+                    <YearTd>NHN(주)에서 NHN엔터테인먼트(주)로 인적분할</YearTd>
                   </tr>
 
                   <tr>
-                    <th
-                      style={{
-                        marginRight: "30px",
-                        display: "inline-block",
-                        fontWeight: "500",
-                      }}
-                    >
-                      OCT
-                    </th>
-                    <td style={{ color: "#7c7c7c" }}>
-                      웹툰 서비스 코미코(Comico) 출시
-                    </td>
+                    <YearTh>OCT</YearTh>
+                    <YearTd>웹툰 서비스 코미코(Comico) 출시</YearTd>
                   </tr>
                 </table>
               </HistoryBox>
@@ -165,30 +145,15 @@ const IntroPage = () => {
                 <img src="/img/history1.jpg" />
                 <YearTable id="right">
                   <tr>
-                    <th
-                      style={{
-                        marginRight: "30px",
-                        display: "inline-block",
-                        fontWeight: "500",
-                        color: "#000",
-                      }}
-                    >
+                    <YearTh id="right">
                       NHN(주)에서 NHN엔터테인먼트(주)로 인적분할
-                    </th>
-                    <td style={{ color: "#7c7c7c" }}>AUG</td>
+                    </YearTh>
+                    <YearTd id="right">AUG</YearTd>
                   </tr>
 
                   <tr>
-                    <th
-                      style={{
-                        marginRight: "30px",
-                        display: "inline-block",
-                        fontWeight: "500",
-                      }}
-                    >
-                      웹툰 서비스 코미코(Comico) 출시
-                    </th>
-                    <td style={{ color: "#7c7c7c" }}>OCT</td>
+                    <YearTh id="right">웹툰 서비스 코미코(Comico) 출시</YearTh>
+                    <YearTd id="right">OCT</YearTd>
                   </tr>
                 </YearTable>
               </HistoryBox>
@@ -366,6 +331,15 @@ const YearTh = styled.th`
   margin-right: 30px;
   display: inline-block;
   font-weight: 500;
+  color: #000;
   &#right {
+    color: #7c7c7c;
+  }
+`;
+
+const YearTd = styled.td`
+  color: #7c7c7c;
+  &#right {
+    color: #000;
   }
 `;

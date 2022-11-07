@@ -102,23 +102,8 @@ const IntroPage = () => {
       </Para>
 
       <Para id="history">
-        <div
-          style={{
-            width: "100%",
-          }}
-        >
-          <span
-            style={{
-              color: "#e72f2c",
-              fontSize: "22px",
-              fontWeight: "600",
-              letterSpacing: "1px",
-              marginBottom: "40px",
-              display: "block",
-            }}
-          >
-            Corporate History
-          </span>
+        <WidthBox>
+          <Title>Corporate History</Title>
 
           <div>
             <HistoryContent
@@ -130,7 +115,6 @@ const IntroPage = () => {
               sub1="NHN(주)에서 NHN엔터테인먼트(주)로 인적분할"
               sub2="웹툰 서비스 코미코(Comico) 출시"
             />
-
             <HistoryContent
               id="right"
               year="2014"
@@ -140,7 +124,6 @@ const IntroPage = () => {
               sub1="게임 개발 전문 자회사 설림(NHN 픽셀큐브(주))"
               sub2="NHN CLOUD 출시"
             />
-
             <HistoryContent
               id="left"
               year="2017"
@@ -150,7 +133,6 @@ const IntroPage = () => {
               sub1="NHN페이코(주) 설립"
               sub2="디지털 전문 광고기업 (주)NHN ACE 설립"
             />
-
             <HistoryContent
               id="right"
               year="2019"
@@ -161,10 +143,75 @@ const IntroPage = () => {
               sub2="NHN(주)로 사명변경"
             />
           </div>
-        </div>
+        </WidthBox>
       </Para>
 
-      <Para id="ethics"></Para>
+      <Para id="ethics">
+        <WidthBox>
+          <Title>Corporate Ethics</Title>
+          <EthicsContainer>
+            <Ethics>
+              <EthicList bg="1">
+                <EthicTitle>Work & Life</EthicTitle>
+                똑똑하게 일하고 충분한 휴식을 통해 성장하는 문화
+              </EthicList>
+              <EthicList bg="2">
+                <EthicTitle>Purple Time</EthicTitle>
+                개인의 라이프 스타일을 존중하는 자율 출퇴근 제도
+              </EthicList>
+              <EthicList bg="3">
+                <EthicTitle>We Family</EthicTitle>
+                매년 5월, 임직원 가족들과 함께하는 위패밀리 데이
+              </EthicList>
+              <EthicList bg="4">
+                <EthicTitle>40+ club</EthicTitle>
+                똑똑하게 일하고 충분한 휴식을 통해 함께 성장하는 문화
+              </EthicList>
+            </Ethics>
+
+            <EthicImg></EthicImg>
+          </EthicsContainer>
+        </WidthBox>
+      </Para>
+
+      <Para id="info">
+        <WidthBox
+          id="infoWidth"
+          style={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <div style={{ fontSize: "20px", fontWeight: "600" }}>
+            NHN 회사정보
+          </div>
+          <InfoTable>
+            <TableTr>
+              <TableTh>대표이사</TableTh>
+              <TableTd>정우진</TableTd>
+            </TableTr>
+            <TableTr>
+              <TableTh>회사위치</TableTh>
+              <TableTd>
+                13487 경기도 성남시 분당구 대왕판교로 645번길 16
+              </TableTd>
+            </TableTr>
+            <TableTr>
+              <TableTh>회사전화</TableTh>
+              <TableTd>1544-6859(ARS)</TableTd>
+            </TableTr>
+            <TableTr>
+              <TableTh>팩스번호</TableTh>
+              <TableTd> 031-8038-3000</TableTd>
+            </TableTr>
+            <TableTr>
+              <TableTh>사업자번호</TableTh>
+              <TableTd>144-81-15549</TableTd>
+            </TableTr>
+          </InfoTable>
+        </WidthBox>
+      </Para>
     </>
   );
 };
@@ -241,110 +288,96 @@ const Para = styled.div`
   }
 
   &#ethics {
-    padding: 0 20%;
+    padding: 0 22%;
+    margin-top: 100px;
+  }
+
+  &#info {
+    padding: 0 12%;
+    margin-top: 200px;
   }
 `;
 
-const Year = styled.span`
+const WidthBox = styled.div`
+  width: 100%;
+
+  &#infoWidth {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+`;
+
+const Title = styled.span`
+  color: #e72f2c;
   font-size: 22px;
-  font-weight: 500;
-  margin-right: 80px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding-bottom: 35px;
   display: block;
-  position: relative;
-  &::after {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 10px;
-    height: 10px;
-    background-color: #e72f2c;
-    right: -40px;
-    top: 10px;
-    border-radius: 50%;
-  }
-  &#right {
-    margin-right: 0;
-    margin-left: 80px;
-    &::after {
-      display: none;
-    }
-    &::before {
-      content: "";
-      position: absolute;
-      display: block;
-      width: 10px;
-      height: 10px;
-      background-color: #e72f2c;
-      left: -40px;
-      top: 10px;
-      border-radius: 50%;
-    }
-  }
 `;
 
-const HistoryContainer = styled.div`
+const EthicList = styled.li`
+  width: 100%;
+  height: 25%;
+  padding-left: 110px;
+  background: url("/img/eth${(props) => props.bg}.png") no-repeat left center;
+  background-size: 16% auto;
+  padding-top: 20px;
+`;
+const EthicTitle = styled.span`
+  display: block;
+  padding-bottom: 10px;
+  color: #e72f2c;
+  font-weight: 600;
+`;
+
+const EthicImg = styled.div`
+  width: 36%;
+  height: 100%;
+  background: url("/img/ethic.jpg") no-repeat;
+  background-size: cover;
+  background-position: -220px bottom;
+`;
+
+const Ethics = styled.ul`
+  width: 55%;
+  height: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
+
+const EthicsContainer = styled.div`
   display: flex;
-  &#left {
-    justify-content: flex-start;
-    margin-bottom: 100px;
-  }
-  &#right {
-    justify-content: flex-end;
-    margin-bottom: 100px;
-  }
+  justify-content: space-between;
+  width: 100%;
+  height: 55vh;
 `;
 
-const HistoryBox = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  &::before {
-    position: absolute;
-    content: "";
-    display: block;
-    width: 1px;
-    height: 90%;
-    background-color: #ececec;
-    left: -45px;
-    bottom: 0;
-  }
-  &#right {
-    align-items: flex-end;
-    text-align: right;
-    &::before {
-      display: none;
-    }
-    &::after {
-      position: absolute;
-      content: "";
-      display: block;
-      width: 1px;
-      height: 90%;
-      background-color: #ececec;
-      right: -45px;
-      bottom: 0;
-    }
-  }
+const InfoTable = styled.table`
+  width: 77%;
+  border-top: 3px solid #e72f2c;
+  border-collapse: collapse;
 `;
 
-const YearTable = styled.table`
-  margin-top: 20px;
-  border-spacing: 0 10px;
+const TableTr = styled.tr`
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid #ccc;
+  padding: 25px 0;
 `;
 
-const YearTh = styled.th`
-  margin-right: 20px;
-  display: inline-block;
+const TableTh = styled.th`
+  text-align: left;
   font-weight: 500;
-  color: #000;
-  &#right {
-    color: #7c7c7c;
-  }
+  width: 20%;
+  display: inline-block;
 `;
-
-const YearTd = styled.td`
+const TableTd = styled.td`
+  text-align: left;
+  font-weight: 400;
+  width: 60%;
+  display: inline-block;
   color: #7c7c7c;
-  &#right {
-    color: #000;
-  }
 `;

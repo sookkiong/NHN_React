@@ -175,17 +175,8 @@ const IntroPage = () => {
       </Para>
 
       <Para id="info">
-        <WidthBox
-          id="infoWidth"
-          style={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <div style={{ fontSize: "20px", fontWeight: "600" }}>
-            NHN 회사정보
-          </div>
+        <WidthBox id="infoWidth">
+          <SmallTitle>NHN 회사정보</SmallTitle>
           <InfoTable>
             <TableTr>
               <TableTh>대표이사</TableTh>
@@ -211,6 +202,39 @@ const IntroPage = () => {
             </TableTr>
           </InfoTable>
         </WidthBox>
+      </Para>
+
+      <Para id="download">
+        <div>
+          <SmallTitle>
+            CI
+            <br />
+            다운로드
+          </SmallTitle>
+          <ul>
+            <li>
+              <a href="/download/AI.zip">AI 다운로드</a>
+            </li>
+            <li>
+              <a href="/download/PNG.zip">PNG 다운로드</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <SmallTitle>
+            회사소개서
+            <br />
+            다운로드
+          </SmallTitle>
+          <ul>
+            <li>
+              <a href="/download/회사소개서_국문.pdf">국문 다운로드</a>
+            </li>
+            <li>
+              <a href="/download/회사소개서_영문.pdf">영문 다운로드</a>
+            </li>
+          </ul>
+        </div>
       </Para>
     </>
   );
@@ -293,6 +317,10 @@ const Para = styled.div`
   }
 
   &#info {
+    padding: 0 12%;
+    margin-top: 200px;
+  }
+  &#download {
     padding: 0 12%;
     margin-top: 200px;
   }
@@ -380,4 +408,9 @@ const TableTd = styled.td`
   width: 60%;
   display: inline-block;
   color: #7c7c7c;
+`;
+
+const SmallTitle = styled.div`
+  font-size: 20px;
+  font-weight: 600;
 `;

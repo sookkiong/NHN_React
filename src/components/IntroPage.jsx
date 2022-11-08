@@ -6,6 +6,11 @@ import HistoryContent from "./History";
 const IntroPage = () => {
   let [hover, setHover] = useState("ai");
 
+  const HoverID = (value) => {
+    const id = value === hover ? "isHover" : undefined;
+    return id;
+  };
+
   return (
     <>
       <IntroTop>
@@ -217,7 +222,7 @@ const IntroPage = () => {
           <DownloadUl>
             <DownList>
               <DownLink
-                id={hover === "ai" ? "isHover" : undefined}
+                id={HoverID("ai")}
                 onMouseOver={() => {
                   setHover("ai");
                 }}
@@ -228,7 +233,7 @@ const IntroPage = () => {
             </DownList>
             <DownList>
               <DownLink
-                id={hover === "png" ? "isHover" : undefined}
+                id={HoverID("png")}
                 onMouseOver={() => setHover("png")}
                 href="/download/PNG.zip"
               >
@@ -248,7 +253,7 @@ const IntroPage = () => {
           <DownloadUl>
             <DownList>
               <DownLink
-                id={hover === "kor" ? "isHover" : undefined}
+                id={HoverID("kor")}
                 onMouseOver={() => setHover("kor")}
                 href="/download/회사소개서_국문.pdf"
               >
@@ -257,7 +262,7 @@ const IntroPage = () => {
             </DownList>
             <DownList>
               <DownLink
-                id={hover === "eng" ? "isHover" : undefined}
+                id={HoverID("eng")}
                 onMouseOver={() => setHover("eng")}
                 href="/download/회사소개서_영문.pdf"
               >

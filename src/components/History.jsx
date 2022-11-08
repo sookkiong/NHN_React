@@ -130,18 +130,21 @@ const YearTable = styled.table`
 `;
 
 const YearTh = styled.th`
-  margin-right: 20px;
   display: inline-block;
   font-weight: 500;
   color: #000;
   &#right {
     color: #7c7c7c;
+    font-weight: 400;
+    margin-right: 30px;
   }
 `;
 
 const YearTd = styled.td`
   color: #7c7c7c;
+  font-weight: 400;
   &#right {
     color: #000;
+    font-weight: 500;
   }
 `;

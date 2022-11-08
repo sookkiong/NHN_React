@@ -4,6 +4,8 @@ import styled from "styled-components";
 import HistoryContent from "./History";
 
 const IntroPage = () => {
+  let [hover, setHover] = useState("ai");
+
   return (
     <>
       <IntroTop>
@@ -205,36 +207,65 @@ const IntroPage = () => {
       </Para>
 
       <Para id="download">
-        <div>
+        <DownloadBox id="ci">
           <SmallTitle>
             CI
             <br />
             다운로드
           </SmallTitle>
-          <ul>
-            <li>
-              <a href="/download/AI.zip">AI 다운로드</a>
-            </li>
-            <li>
-              <a href="/download/PNG.zip">PNG 다운로드</a>
-            </li>
-          </ul>
-        </div>
-        <div>
+
+          <DownloadUl>
+            <DownList>
+              <DownLink
+                id={hover === "ai" ? "isHover" : undefined}
+                onMouseOver={() => {
+                  setHover("ai");
+                }}
+                href="/download/AI.zip"
+              >
+                AI 다운로드
+              </DownLink>
+            </DownList>
+            <DownList>
+              <DownLink
+                id={hover === "png" ? "isHover" : undefined}
+                onMouseOver={() => setHover("png")}
+                href="/download/PNG.zip"
+              >
+                PNG 다운로드
+              </DownLink>
+            </DownList>
+          </DownloadUl>
+        </DownloadBox>
+
+        <DownloadBox>
           <SmallTitle>
             회사소개서
             <br />
             다운로드
           </SmallTitle>
-          <ul>
-            <li>
-              <a href="/download/회사소개서_국문.pdf">국문 다운로드</a>
-            </li>
-            <li>
-              <a href="/download/회사소개서_영문.pdf">영문 다운로드</a>
-            </li>
-          </ul>
-        </div>
+
+          <DownloadUl>
+            <DownList>
+              <DownLink
+                id={hover === "kor" ? "isHover" : undefined}
+                onMouseOver={() => setHover("kor")}
+                href="/download/회사소개서_국문.pdf"
+              >
+                국문 다운로드
+              </DownLink>
+            </DownList>
+            <DownList>
+              <DownLink
+                id={hover === "eng" ? "isHover" : undefined}
+                onMouseOver={() => setHover("eng")}
+                href="/download/회사소개서_영문.pdf"
+              >
+                영문 다운로드
+              </DownLink>
+            </DownList>
+          </DownloadUl>
+        </DownloadBox>
       </Para>
     </>
   );
@@ -312,7 +343,7 @@ const Para = styled.div`
   }
 
   &#ethics {
-    padding: 0 22%;
+    padding: 0 23%;
     margin-top: 100px;
   }
 
@@ -323,12 +354,12 @@ const Para = styled.div`
   &#download {
     padding: 0 12%;
     margin-top: 200px;
+    flex-direction: column;
   }
 `;
 
 const WidthBox = styled.div`
   width: 100%;
-
   &#infoWidth {
     width: 100%;
     display: flex;
@@ -347,11 +378,10 @@ const Title = styled.span`
 
 const EthicList = styled.li`
   width: 100%;
-  height: 25%;
-  padding-left: 110px;
-  background: url("/img/eth${(props) => props.bg}.png") no-repeat left center;
-  background-size: 16% auto;
-  padding-top: 20px;
+  height: 22%;
+  padding-left: 22%;
+  background: url("/img/eth${(props) => props.bg}.png") no-repeat left top;
+  background-size: 15% auto;
 `;
 const EthicTitle = styled.span`
   display: block;
@@ -365,7 +395,7 @@ const EthicImg = styled.div`
   height: 100%;
   background: url("/img/ethic.jpg") no-repeat;
   background-size: cover;
-  background-position: -220px bottom;
+  background-position: 75% bottom;
 `;
 
 const Ethics = styled.ul`
@@ -374,11 +404,15 @@ const Ethics = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const EthicsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   height: 55vh;
 `;
@@ -413,4 +447,41 @@ const TableTd = styled.td`
 const SmallTitle = styled.div`
   font-size: 20px;
   font-weight: 600;
+`;
+
+const DownloadBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  &#ci {
+    margin-bottom: 70px;
+  }
+`;
+
+const DownloadUl = styled.ul`
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  width: 77%;
+`;
+
+const DownList = styled.li`
+  width: 260px;
+  margin-right: 80px;
+`;
+const DownLink = styled.a`
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 55px;
+  text-decoration: none;
+  color: #000;
+  border: 1px solid #ccc;
+
+  &#isHover {
+    background: #e72f2c;
+    color: #fff;
+    border: 1px solid #e72f2c;
+  }
 `;

@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { Outlet } from "react-router";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import Header from "./header";
 import HistoryContent from "./History";
 
 const IntroPage = () => {
@@ -13,7 +15,7 @@ const IntroPage = () => {
 
   return (
     <>
-      <IntroTop>
+      {/* <IntroTop>
         <IntroInner>
           <IntroSpan size="62px" fw="500" spacing="3px">
             회사소개
@@ -28,8 +30,10 @@ const IntroPage = () => {
         </IntroInner>
       </IntroTop>
 
+      <GoTop>↑</GoTop> */}
+
       <Para>
-        <div style={{ width: "45%" }}>
+        <div style={{ width: "36%" }}>
           <p style={{ fontSize: "32px", fontWeight: "500" }}>
             NHN은 게임, 결제, 엔터테인먼트, IT, 광고 등 IT 기반의 다양한
             사업분야에 진출, 성장해 나가고 있는 글로벌 IT 기업입니다.
@@ -50,8 +54,8 @@ const IntroPage = () => {
           src="/img/bodybg.png"
           style={{
             position: "absolute",
-            top: "-180px",
-            left: "200px",
+            top: "-19zkzk0px",
+            left: "320px",
             width: "650px",
           }}
         />
@@ -272,20 +276,42 @@ const IntroPage = () => {
           </DownloadUl>
         </DownloadBox>
       </Para>
+
+      <Footer>
+        <FContainer>
+          <FLogo>
+            <img src="/img/f_logo.png" />
+          </FLogo>
+          <FLinkContainer>
+            <FList>
+              <FLink href="#">개인정보처리방침</FLink>
+            </FList>
+            <FList id="sepa">|</FList>
+            <FList>
+              <FLink href="#">대표메일</FLink>
+            </FList>
+          </FLinkContainer>
+        </FContainer>
+
+        <FContainer>
+          <Fsns bg="1" href="#"></Fsns>
+          <Fsns bg="2" href="#"></Fsns>
+          <Fsns bg="3" href="#"></Fsns>
+        </FContainer>
+      </Footer>
     </>
   );
 };
 
 export default IntroPage;
 
-const IntroTop = styled.div`
+export const IntroTop = styled.div`
   width: 100%;
   height: 88%;
-  background: #e72f2c;
-  background: url("./img/introbg.png") no-repeat center bottom;
+  background: url("/img/introbg.png") no-repeat center bottom;
   background-size: cover;
 `;
-const IntroInner = styled.div`
+export const IntroInner = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
@@ -294,14 +320,14 @@ const IntroInner = styled.div`
   align-items: center;
 `;
 
-const IntroSpan = styled.span`
+export const IntroSpan = styled.span`
   color: #fff;
   font-size: ${(props) => props.size};
   font-weight: ${(props) => props.fw};
   letter-spacing: ${(props) => props.spacing};
 `;
 
-const TabUl = styled.ul`
+export const TabUl = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
@@ -313,7 +339,7 @@ const TabUl = styled.ul`
   justify-content: space-between;
 `;
 
-const TabList = styled.li`
+export const TabList = styled.li`
   width: 45%;
   padding: 10px;
   font-size: 14px;
@@ -328,6 +354,21 @@ const TabList = styled.li`
     text-decoration: underline;
     font-weight: 500;
   }
+`;
+
+export const GoTop = styled.button`
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  color: #e72f2c;
+  font-size: 26px;
+  text-align: center;
+  line-height: 50px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  border: 1px solid #e72f2c;
+  z-index: 1000;
 `;
 
 const Para = styled.div`
@@ -369,6 +410,9 @@ const WidthBox = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
+  }
+  &#footerWidth {
+    display: flex;
   }
 `;
 
@@ -489,4 +533,50 @@ const DownLink = styled.a`
     color: #fff;
     border: 1px solid #e72f2c;
   }
+`;
+
+const Footer = styled.footer`
+  padding: 40px 12%;
+  margin-top: 200px;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const FContainer = styled.div`
+  display: flex;
+`;
+const FLogo = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const FLinkContainer = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  margin-left: 100px;
+  align-items: center;
+`;
+
+const FList = styled.li`
+  margin-right: 20px;
+  &#sepa {
+    color: #ccc;
+    font-size: 13px;
+  }
+`;
+const FLink = styled.a`
+  color: #ccc;
+  text-decoration: none;
+`;
+const Fsns = styled.a`
+  display: block;
+  width: 22px;
+  height: 22px;
+  margin-left: 50px;
+  background: url("./img/fsns${(props) => props.bg}.png") no-repeat center
+    center;
+  background-size: contain;
 `;

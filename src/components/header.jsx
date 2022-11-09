@@ -7,7 +7,7 @@ import { langOnState, sideOnState } from "../store/state";
 const Header = () => {
   const navigate = useNavigate();
   const tabList = [
-    { id: "intro", name: "소개" },
+    { id: "company/intro", name: "소개" },
     { id: "service", name: "서비스" },
     { id: "article", name: "보도자료" },
     { id: "recruit", name: "채용" },

@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { langOnState, sideOnState } from "../store/state";
 
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
   const tabList = [
     { id: "company/intro", name: "소개" },
     { id: "service", name: "서비스" },
@@ -17,7 +19,7 @@ const Header = () => {
   let [sideOn, setSideOn] = useRecoilState(sideOnState);
 
   return (
-    <StyledHeader>
+    <StyledHeader id={location.pathname === "/" ? "home" : undefined}>
       <nav
         style={{
           display: "flex",
@@ -25,7 +27,7 @@ const Header = () => {
           justifyContent: "space-between",
         }}
       >
-        <MainLogo src="/img/mainlogo.png" />
+        <MainLogo src="/img/mainlogo.png" onClick={() => navigate("/")} />
         <ul
           className="gnb"
           style={{
@@ -103,11 +105,16 @@ const StyledHeader = styled.header`
   background: #e72f2c;
   position: relative;
   top: 0;
+  &#home {
+    position: absolute;
+    top: 0;
+  }
 `;
 
 const MainLogo = styled.img`
   width: 8%;
   height: auto;
+  cursor: pointer;
 `;
 
 const SideButton = styled.button`

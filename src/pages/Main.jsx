@@ -71,7 +71,6 @@ const MainStyle = styled.div`
   background: #e72f2c;
   overflow-y: hidden;
   overflow-x: hidden;
-  padding-top: 60px;
   border: none;
 `;
 

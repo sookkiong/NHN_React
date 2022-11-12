@@ -16,7 +16,7 @@ import {
   TabList,
   TabUl,
 } from "../pages/Intro";
-import { tabMenu } from "../components/company/tabmenu";
+import { tabMenu } from "../components/company/menus";
 
 // company(intro, ethics) 공통 Layout
 const CompanyLayout = () => {

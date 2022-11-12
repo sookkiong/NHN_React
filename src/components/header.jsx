@@ -101,7 +101,7 @@ const StyledHeader = styled.header`
   padding: 60px 0;
   z-index: 1;
   background: #e72f2c;
-  position: absolute;
+  position: relative;
   top: 0;
 `;
 

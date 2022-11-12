@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Outlet } from "react-router";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import Header from "./header";
-import HistoryContent from "./History";
+import Header from "../components/header";
+import HistoryContent from "../components/History";
 
 const IntroPage = () => {
   let [hover, setHover] = useState("ai");
@@ -15,23 +15,6 @@ const IntroPage = () => {
 
   return (
     <>
-      {/* <IntroTop>
-        <IntroInner>
-          <IntroSpan size="62px" fw="500" spacing="3px">
-            회사소개
-          </IntroSpan>
-          <IntroSpan size="16px" spacing="1px">
-            글로벌 IT기업 NHN은 Next Human Network의 뜻을 가집니다.
-          </IntroSpan>
-          <TabUl>
-            <TabList id="TabListNum1">회사소개</TabList>
-            <TabList>기업윤리경영</TabList>
-          </TabUl>
-        </IntroInner>
-      </IntroTop>
-
-      <GoTop>↑</GoTop> */}
-
       <Para>
         <div style={{ width: "36%" }}>
           <p style={{ fontSize: "32px", fontWeight: "500" }}>
@@ -54,7 +37,7 @@ const IntroPage = () => {
           src="/img/bodybg.png"
           style={{
             position: "absolute",
-            top: "-19zkzk0px",
+            top: "-190px",
             left: "320px",
             width: "650px",
           }}
@@ -76,7 +59,7 @@ const IntroPage = () => {
             style={{
               width: "100%",
               height: "48vh",
-              background: `url("./img/sect2img.jpg") no-repeat center center`,
+              background: `url("/img/sect2img.jpg") no-repeat center center`,
               backgroundSize: "cover",
               position: "relative",
             }}
@@ -276,29 +259,6 @@ const IntroPage = () => {
           </DownloadUl>
         </DownloadBox>
       </Para>
-
-      <Footer>
-        <FContainer>
-          <FLogo>
-            <img src="/img/f_logo.png" />
-          </FLogo>
-          <FLinkContainer>
-            <FList>
-              <FLink href="#">개인정보처리방침</FLink>
-            </FList>
-            <FList id="sepa">|</FList>
-            <FList>
-              <FLink href="#">대표메일</FLink>
-            </FList>
-          </FLinkContainer>
-        </FContainer>
-
-        <FContainer>
-          <Fsns bg="1" href="#"></Fsns>
-          <Fsns bg="2" href="#"></Fsns>
-          <Fsns bg="3" href="#"></Fsns>
-        </FContainer>
-      </Footer>
     </>
   );
 };
@@ -307,7 +267,7 @@ export default IntroPage;
 
 export const IntroTop = styled.div`
   width: 100%;
-  height: 88%;
+  height: 510px;
   background: url("/img/introbg.png") no-repeat center bottom;
   background-size: cover;
 `;
@@ -325,6 +285,7 @@ export const IntroSpan = styled.span`
   font-size: ${(props) => props.size};
   font-weight: ${(props) => props.fw};
   letter-spacing: ${(props) => props.spacing};
+  margin-top: 10px;
 `;
 
 export const TabUl = styled.ul`
@@ -345,7 +306,7 @@ export const TabList = styled.li`
   font-size: 14px;
   cursor: pointer;
   color: #fff;
-  &#TabListNum1 {
+  &#nowOn {
     background: #fff;
     color: #e72f2c;
     font-weight: 600;
@@ -535,7 +496,7 @@ const DownLink = styled.a`
   }
 `;
 
-const Footer = styled.footer`
+export const Footer = styled.footer`
   padding: 40px 12%;
   margin-top: 200px;
   border-top: 1px solid #ccc;
@@ -543,15 +504,15 @@ const Footer = styled.footer`
   justify-content: space-between;
 `;
 
-const FContainer = styled.div`
+export const FContainer = styled.div`
   display: flex;
 `;
-const FLogo = styled.div`
+export const FLogo = styled.div`
   display: flex;
   align-items: center;
 `;
 
-const FLinkContainer = styled.ul`
+export const FLinkContainer = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
@@ -560,23 +521,22 @@ const FLinkContainer = styled.ul`
   align-items: center;
 `;
 
-const FList = styled.li`
+export const FList = styled.li`
   margin-right: 20px;
   &#sepa {
     color: #ccc;
     font-size: 13px;
   }
 `;
-const FLink = styled.a`
+export const FLink = styled.a`
   color: #ccc;
   text-decoration: none;
 `;
-const Fsns = styled.a`
+export const Fsns = styled.a`
   display: block;
   width: 22px;
   height: 22px;
   margin-left: 50px;
-  background: url("./img/fsns${(props) => props.bg}.png") no-repeat center
-    center;
+  background: url("/img/fsns${(props) => props.bg}.png") no-repeat center center;
   background-size: contain;
 `;

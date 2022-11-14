@@ -1,10 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { CircleData } from "../components/company/menus";
+import { CircleData, EthicData } from "../components/company/menus";
 
 const Ethics = () => {
   let [circle, setCircle] = useState("");
-
   return (
     <Container>
       <ContentsBox>
@@ -26,7 +25,59 @@ const Ethics = () => {
           </CircleUL>
         </div>
 
-        <div></div>
+        <div style={{ marginTop: "150px" }}>
+          <EthicsUL>
+            {EthicData.map((value) => {
+              return (
+                <li
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    marginBottom: "80px",
+                    width: "100%",
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: "18px",
+                      fontWeight: "600",
+                      width: "380px",
+                    }}
+                  >
+                    {value.title}
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "800px",
+                      height: "200px",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "40%",
+                        borderBottom: "1px solid #ccc",
+                      }}
+                    >
+                      <SubTitle>{value.subTitle1}</SubTitle>
+                      <SubContent>{value.subContent1}</SubContent>
+                    </div>
+                    <div
+                      style={{
+                        width: "40%",
+                        borderBottom: "1px solid #ccc",
+                      }}
+                    >
+                      <SubTitle>{value.subTitle2}</SubTitle>
+                      <SubContent>{value.subContent2}</SubContent>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </EthicsUL>
+        </div>
       </ContentsBox>
     </Container>
   );
@@ -69,10 +120,26 @@ const CircleList = styled.li`
   text-align: center;
   color: #e72f2c;
   border: 2px solid #e72f2c;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 18px;
   &#hoverCircle {
     background: #e72f2c;
     color: #fff;
   }
+`;
+
+const EthicsUL = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
+
+const SubTitle = styled.span`
+  color: #e72f2c;
+  font-weight: 600;
+`;
+const SubContent = styled.p`
+  color: #7c7c7c;
+  font-size: 14px;
+  line-height: 22px;
 `;

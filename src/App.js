@@ -9,6 +9,7 @@ import IntroPage from "./pages/Intro";
 import MainLayout from "./layout/MainLayout";
 import CompanyLayout from "./layout/CompanyLayout";
 import Ethics from "./pages/Ethics";
+import Service from "./pages/service";
 
 function App() {
   const [, setLangOn] = useRecoilState(langOnState);
@@ -25,7 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<MainPage />} />
-            <Route path="service" />
+            <Route path="service" element={<Service />} />
           </Route>
           <Route path="/company" element={<CompanyLayout />}>
             <Route index element={<IntroPage />} />

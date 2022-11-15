@@ -29,51 +29,20 @@ const Ethics = () => {
           <EthicsUL>
             {EthicData.map((value) => {
               return (
-                <li
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    marginBottom: "80px",
-                    width: "100%",
-                  }}
-                >
-                  <div
-                    style={{
-                      fontSize: "18px",
-                      fontWeight: "600",
-                      width: "380px",
-                    }}
-                  >
-                    {value.title}
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      width: "800px",
-                      height: "200px",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "40%",
-                        borderBottom: "1px solid #ccc",
-                      }}
-                    >
+                <EthicsRow>
+                  <RowTitle>{value.title}</RowTitle>
+
+                  <RowBox>
+                    <Box>
                       <SubTitle>{value.subTitle1}</SubTitle>
                       <SubContent>{value.subContent1}</SubContent>
-                    </div>
-                    <div
-                      style={{
-                        width: "40%",
-                        borderBottom: "1px solid #ccc",
-                      }}
-                    >
+                    </Box>
+                    <Box>
                       <SubTitle>{value.subTitle2}</SubTitle>
                       <SubContent>{value.subContent2}</SubContent>
-                    </div>
-                  </div>
-                </li>
+                    </Box>
+                  </RowBox>
+                </EthicsRow>
               );
             })}
           </EthicsUL>
@@ -142,4 +111,29 @@ const SubContent = styled.p`
   color: #7c7c7c;
   font-size: 14px;
   line-height: 22px;
+`;
+
+const EthicsRow = styled.li`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 80px;
+  width: 100%;
+`;
+
+const RowTitle = styled.div`
+  font-size: 18px;
+  font-weight: 600;
+  width: 30%;
+`;
+
+const RowBox = styled.div`
+  display: flex;
+  width: 70%;
+  height: 200px;
+  justify-content: space-between;
+`;
+
+const Box = styled.div`
+  width: 40%;
+  border-bottom: 1px solid #ccc;
 `;

@@ -218,8 +218,8 @@ const Close = styled.button`
   cursor: pointer;
   display: block;
   background-color: #fff;
-  color: #000;
-  border: 1px solid #000;
+  color: #7c7c7c;
+  border: 1px solid #7c7c7c;
   margin: 50px auto 30px;
   &:hover {
     background-color: #e72f2c;

@@ -10,6 +10,7 @@ import {
   IntroSpan,
   IntroTop,
 } from "./Intro";
+import { article } from "../components/article/article";
 
 const Article = () => {
   return (
@@ -25,12 +26,47 @@ const Article = () => {
         </IntroInner>
       </IntroTop>
 
-      <div>
-        <div>
-          전체 <span>7</span>건
+      <div style={{ margin: "100px 10% 50px" }}>
+        <div
+          style={{
+            width: "100%",
+            fontWeight: "500",
+            borderBottom: "2px solid #000",
+            paddingBottom: "20px",
+          }}
+        >
+          전체 <span style={{ color: "#e72f2c", fontWeight: "600" }}>7</span>건
         </div>
 
-        <ul>{}</ul>
+        <ul
+          style={{
+            width: "100%",
+            padding: "0",
+            margin: "0",
+            listStyle: "none",
+          }}
+        >
+          {article.map((value) => {
+            return (
+              <li
+                id={value.id}
+                style={{
+                  display: "flex",
+                  border: "1px solid black",
+
+                  marginBottom: "20px",
+                  width: "100%",
+                }}
+              >
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <div>{value.title}</div>
+                  <div>{value.content}</div>
+                </div>
+                {value.photo ? <img src={value.photo} /> : null}
+              </li>
+            );
+          })}
+        </ul>
       </div>
 
       <Footer>

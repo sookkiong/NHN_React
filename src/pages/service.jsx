@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ServiceList } from "../components/service/service";
+import { serviceList } from "../components/service/service";
 
 const Service = () => {
   return (
@@ -12,12 +12,65 @@ const Service = () => {
           </TitleSpan>
         </div>
 
-        <UL>
-          {ServiceList.map((value) => {
-            return <List>{value}</List>;
+        <TagContainer>
+          {serviceList.map((row) => {
+            return (
+              <TagRow id={row.includes("기타") ? "end" : undefined}>
+                {row.map((value) => {
+                  return <Tag id={value === "#" ? "샵" : value}>{value}</Tag>;
+                })}
+              </TagRow>
+            );
           })}
-        </UL>
+        </TagContainer>
       </Container>
+
+      <Footer>
+        <FContainer>
+          <FLogo>
+            <img src="/img/logo.png" />
+          </FLogo>
+          <FLinkContainer>
+            <FList>
+              <FLink
+                onClick={() => {
+                  window.open("privacy", "", "width=800 height=800");
+                }}
+              >
+                개인정보처리방침
+              </FLink>
+            </FList>
+            <FList id="sepa">|</FList>
+            <FList>
+              <FLink
+                onClick={() => {
+                  window.open("mails", "", "width=500,height=500");
+                }}
+              >
+                대표메일
+              </FLink>
+            </FList>
+          </FLinkContainer>
+        </FContainer>
+
+        <FContainer>
+          <Fsns
+            bg="1"
+            href="https://www.instagram.com/accounts/login/?next=%2Finside_nhn%2F&source=omni_redirect"
+            target="_blank"
+          ></Fsns>
+          <Fsns
+            bg="2"
+            href="https://twitter.com/nhn_ent"
+            target="_blank"
+          ></Fsns>
+          <Fsns
+            bg="3"
+            href="https://www.facebook.com/NHNCloud/"
+            target="_blank"
+          ></Fsns>
+        </FContainer>
+      </Footer>
     </>
   );
 };
@@ -25,9 +78,8 @@ const Service = () => {
 export default Service;
 
 const Container = styled.div`
-  height: 100vh;
   background-color: #e72f2c;
-  padding: 0 10%;
+  padding: 0 10% 160px;
 `;
 
 const TitleSpan = styled.span`
@@ -43,13 +95,93 @@ const TitleSpan = styled.span`
     padding-top: 5px;
   }
 `;
-const UL = styled.ul`
-  list-style: none;
-  margin-top: 60px;
-  padding: 0;
+
+const TagContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 90px;
 `;
 
-const List = styled.li`
-  border: 1px solid #fff;
+const TagRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 50px;
+  &#end {
+    justify-content: flex-start;
+  }
+`;
+
+const Tag = styled.div`
+  border: 5px solid #fff;
   font-size: 56px;
+  font-weight: 500;
+  color: #fff;
+  border-radius: 50px;
+  padding: 5px 40px;
+  cursor: pointer;
+  &#아이엠스쿨,
+  &#기타 {
+    margin-right: 50px;
+  }
+  &#샵,
+  &#게임,
+  &#한게임,
+  &#결제,
+  &#페이코,
+  &#컨텐츠,
+  &#티켓링크,
+  &#커머스,
+  &#IT,
+  &#에듀테크,
+  &#기타 {
+    background-color: #fff;
+    color: #e72f2c;
+  }
+`;
+
+const Footer = styled.footer`
+  padding: 40px 12%;
+  border-top: 1px solid #fff;
+  display: flex;
+  justify-content: space-between;
+  background-color: #e72f2c;
+`;
+
+const FContainer = styled.div`
+  display: flex;
+`;
+const FLogo = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const FLinkContainer = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  margin-left: 100px;
+  align-items: center;
+`;
+
+const FList = styled.li`
+  margin-right: 20px;
+  &#sepa {
+    color: #ccc;
+    font-size: 13px;
+  }
+`;
+const FLink = styled.a`
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+`;
+const Fsns = styled.a`
+  display: block;
+  width: 22px;
+  height: 22px;
+  margin-left: 50px;
+  background: url("/img/fsns${(props) => props.bg}_w.png") no-repeat center
+    center;
+  background-size: contain;
 `;

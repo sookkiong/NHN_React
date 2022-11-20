@@ -267,7 +267,7 @@ export default IntroPage;
 
 export const IntroTop = styled.div`
   width: 100%;
-  height: 510px;
+  height: 520px;
   background: url("/img/introbg.png") no-repeat center bottom;
   background-size: cover;
 `;
@@ -285,7 +285,7 @@ export const IntroSpan = styled.span`
   font-size: ${(props) => props.size};
   font-weight: ${(props) => props.fw};
   letter-spacing: ${(props) => props.spacing};
-  margin-top: 10px;
+  margin-top: 0px;
 `;
 
 export const TabUl = styled.ul`
@@ -531,6 +531,7 @@ export const FList = styled.li`
 export const FLink = styled.a`
   color: #ccc;
   text-decoration: none;
+  cursor: pointer;
 `;
 export const Fsns = styled.a`
   display: block;

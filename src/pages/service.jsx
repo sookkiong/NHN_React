@@ -34,7 +34,7 @@ const Service = () => {
             <FList>
               <FLink
                 onClick={() => {
-                  window.open("privacy", "", "width=800 height=800");
+                  window.open("/privacy", "", "width=800 height=800");
                 }}
               >
                 개인정보처리방침
@@ -44,7 +44,7 @@ const Service = () => {
             <FList>
               <FLink
                 onClick={() => {
-                  window.open("mails", "", "width=500,height=500");
+                  window.open("/mails", "", "width=500,height=500");
                 }}
               >
                 대표메일

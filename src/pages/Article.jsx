@@ -11,8 +11,12 @@ import {
   IntroTop,
 } from "./Intro";
 import { article } from "../components/article/article";
+import styled from "styled-components";
+import { useNavigate } from "react-router";
 
 const Article = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <IntroTop>
@@ -38,35 +42,37 @@ const Article = () => {
           전체 <span style={{ color: "#e72f2c", fontWeight: "600" }}>7</span>건
         </div>
 
-        <ul
-          style={{
-            width: "100%",
-            padding: "0",
-            margin: "0",
-            listStyle: "none",
-          }}
-        >
+        <ArtUL>
           {article.map((value) => {
             return (
-              <li
-                id={value.id}
-                style={{
-                  display: "flex",
-                  border: "1px solid black",
-
-                  marginBottom: "20px",
-                  width: "100%",
+              <ArtList
+                onClick={() => {
+                  navigate("/articlein");
                 }}
               >
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <div>{value.title}</div>
-                  <div>{value.content}</div>
-                </div>
-                {value.photo ? <img src={value.photo} /> : null}
-              </li>
+                <ArtiLeft>
+                  <div style={{ marginBottom: "20px", fontWeight: "500" }}>
+                    {value.title}
+                  </div>
+                  <div
+                    style={{
+                      color: "#7c7c7c",
+                      fontSize: "14px",
+                      marginBottom: "20px",
+                    }}
+                  >
+                    {value.content}
+                  </div>
+                  <div style={{ color: "#7c7c7c", fontSize: "12px" }}>
+                    {value.date}
+                  </div>
+                </ArtiLeft>
+
+                {value.photo ? <ImgBox id={value.id}></ImgBox> : null}
+              </ArtList>
             );
           })}
-        </ul>
+        </ArtUL>
       </div>
 
       <Footer>
@@ -108,3 +114,40 @@ const Article = () => {
 };
 
 export default Article;
+
+const ArtUL = styled.ul`
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+`;
+
+const ArtList = styled.li`
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  padding: 50px 0;
+  cursor: pointer;
+`;
+
+const ImgBox = styled.div`
+  width: 600px;
+  margin-left: 30px;
+  &#arti1 {
+    background: url("/img/article_photo1.png") no-repeat center center;
+    background-size: cover;
+  }
+  &#arti3 {
+    background: url("/img/article_photo2.png") no-repeat center center;
+    background-size: cover;
+  }
+  &#arti6 {
+    background: url("/img/article_photo3.png") no-repeat center -70px;
+    background-size: cover;
+  }
+`;
+
+const ArtiLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+`;

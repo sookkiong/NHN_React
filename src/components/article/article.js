@@ -53,16 +53,3 @@ export const article = [
     date: "2022.01.23",
   },
 ];
-
-export const artiIn = {
-  title: "NHN 빅풋-위메이드, 'Project WEMIX Sprots' 서비스 계약 체결",
-  date: "2022.02.04",
-  summary: (
-    <span>
-      - 한게임 노하우 살린 스포츠 예측 게임 'Project WEMIX Sports', 위믹스에서
-      서비스 예정
-      <br />- 블록체인 플랫폼 내 게임 서비스 제공 이어가며, 게임과 플랫폼 간
-      선순환 구조 만들 것
-    </span>
-  ),
-};

@@ -30,7 +30,7 @@ const Article = () => {
         </IntroInner>
       </IntroTop>
 
-      <div style={{ margin: "100px 10% 50px" }}>
+      <div style={{ margin: "100px 18% 50px" }}>
         <div
           style={{
             width: "100%",
@@ -51,14 +51,17 @@ const Article = () => {
                 }}
               >
                 <ArtiLeft>
-                  <div style={{ marginBottom: "20px", fontWeight: "500" }}>
+                  <div
+                    id="artiTitle"
+                    style={{ marginBottom: "20px", fontWeight: "500" }}
+                  >
                     {value.title}
                   </div>
                   <div
                     style={{
                       color: "#7c7c7c",
                       fontSize: "14px",
-                      marginBottom: "20px",
+                      marginBottom: "50px",
                     }}
                   >
                     {value.content}
@@ -128,10 +131,15 @@ const ArtList = styled.li`
   width: 100%;
   padding: 50px 0;
   cursor: pointer;
+  &:hover {
+    #artiTitle {
+      text-decoration: underline;
+    }
+  }
 `;
 
 const ImgBox = styled.div`
-  width: 600px;
+  width: 500px;
   margin-left: 30px;
   &#arti1 {
     background: url("/img/article_photo1.png") no-repeat center center;

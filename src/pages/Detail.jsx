@@ -1,12 +1,19 @@
 import styled from "styled-components";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { articles } from "../components/article/article";
+import { useEffect } from "react";
 
 const ArticleIn = () => {
   let navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const id = searchParams.get("id");
+  const id = Number(searchParams.get("id"));
   const article = articles.find((element) => element.id === id);
+  const nextArticle = articles.find((element) => element.id === id + 1)?.title;
+  const prevArticle = articles.find((element) => element.id === id - 1)?.title;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   return (
     <>
@@ -31,7 +38,10 @@ const ArticleIn = () => {
                 onClick={() => {
                   navigate(`/article/detail?id=${Number(article.id) - 1}`);
                 }}
-              ></GoButton>
+                disabled={!prevArticle}
+              >
+                {prevArticle || "이전 글이 없습니다."}
+              </GoButton>
             </ButtonWrap>
             <GoList
               onClick={() => {
@@ -43,10 +53,14 @@ const ArticleIn = () => {
             <ButtonWrap id="next">
               <ButtonSpan>다음 글</ButtonSpan>
               <GoButton
+                id="right"
                 onClick={() => {
                   navigate(`/article/detail?id=${Number(article.id) + 1}`);
                 }}
-              ></GoButton>
+                disabled={!nextArticle}
+              >
+                {nextArticle || "다음 글이 없습니다."}
+              </GoButton>
             </ButtonWrap>
           </ArtiBottom>
         </Back>
@@ -87,18 +101,31 @@ const ButtonSpan = styled.span`
   display: block;
   font-weight: 600;
 `;
-const GoButton = styled.span`
+const GoButton = styled.button`
   color: #7c7c7c;
+  border: none;
+  text-align: left;
+  background: none;
+  padding: 0;
+  cursor: pointer;
   &:hover {
     color: #000;
     text-decoration: underline;
+  }
+  &:disabled {
+    text-decoration: none;
+    color: #7c7c7c;
+    cursor: default;
+  }
+  &#right {
+    text-align: right;
   }
 `;
 
 const GoList = styled.button`
   background: none;
   border: 1px solid #7c7c7c;
-  padding: 0 30px;
+  padding: 0px 30px;
   cursor: pointer;
   &:hover {
     background: #e72f2c;

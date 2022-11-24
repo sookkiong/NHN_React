@@ -146,11 +146,11 @@ const ImgBox = styled.div`
     background-size: cover;
   }
   &#arti3 {
-    background: url("/img/article_photo2.png") no-repeat center center;
+    background: url("/img/article_photo3.png") no-repeat center center;
     background-size: cover;
   }
   &#arti6 {
-    background: url("/img/article_photo3.png") no-repeat center -70px;
+    background: url("/img/article_photo6.png") no-repeat center -70px;
     background-size: cover;
   }
 `;

@@ -10,7 +10,7 @@ import {
   IntroSpan,
   IntroTop,
 } from "./Intro";
-import { article } from "../components/article/article";
+import { article, articles } from "../components/article/article";
 import styled from "styled-components";
 import { useNavigate } from "react-router";
 
@@ -43,11 +43,11 @@ const Article = () => {
         </div>
 
         <ArtUL>
-          {article.map((value) => {
+          {articles.map((value) => {
             return (
               <ArtList
                 onClick={() => {
-                  navigate("/articlein");
+                  navigate(`/article/detail?id=${value.id}`);
                 }}
               >
                 <ArtiLeft>
@@ -64,14 +64,14 @@ const Article = () => {
                       marginBottom: "50px",
                     }}
                   >
-                    {value.content}
+                    {value.list}
                   </div>
                   <div style={{ color: "#7c7c7c", fontSize: "12px" }}>
                     {value.date}
                   </div>
                 </ArtiLeft>
 
-                {value.photo ? <ImgBox id={value.id}></ImgBox> : null}
+                {value.image ? <ImgBox id={"arti" + value.id}></ImgBox> : null}
               </ArtList>
             );
           })}

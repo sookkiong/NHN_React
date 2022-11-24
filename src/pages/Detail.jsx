@@ -1,41 +1,52 @@
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { articles } from "../components/article/article";
 
 const ArticleIn = () => {
   let navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get("id");
+  const article = articles.find((element) => element.id === id);
 
   return (
     <>
       <Container>
         <Back>
           <ArtiTop>
-            {articles.map((value) => {
-              return (
-                <>
-                  <Title>{value.title}</Title>
-                  <Date>{value.date}</Date>
-                  <Summary>{value.summary}</Summary>
+            <Title>{article.title}</Title>
+            <Date>{article.date}</Date>
+            <Summary>{article.summary}</Summary>
 
-                  <Image>
-                    <img src={value.image} width="100%" />
-                  </Image>
+            <Image>
+              <img src={article.image} width="100%" />
+            </Image>
 
-                  <Content>{value.content}</Content>
-                </>
-              );
-            })}
+            <Content>{article.content}</Content>
           </ArtiTop>
 
           <ArtiBottom>
             <ButtonWrap>
               <ButtonSpan>이전 글</ButtonSpan>
-              <GoButton>이전 글이 없습니다.</GoButton>
+              <GoButton
+                onClick={() => {
+                  navigate(`/article/detail?id=${Number(article.id) - 1}`);
+                }}
+              ></GoButton>
             </ButtonWrap>
-            <GoList>목록</GoList>
+            <GoList
+              onClick={() => {
+                navigate("/article");
+              }}
+            >
+              목록
+            </GoList>
             <ButtonWrap id="next">
               <ButtonSpan>다음 글</ButtonSpan>
-              <GoButton>NHN, 게임자회사 'NHN빅풋'으로 통합</GoButton>
+              <GoButton
+                onClick={() => {
+                  navigate(`/article/detail?id=${Number(article.id) + 1}`);
+                }}
+              ></GoButton>
             </ButtonWrap>
           </ArtiBottom>
         </Back>

@@ -13,6 +13,7 @@ import Service from "./pages/service";
 import Article from "./pages/Article";
 import { Privacy, Mails } from "./components/service/service";
 import Detail from "./pages/Detail";
+import Recruit from "./pages/Recruit";
 
 function App() {
   const [, setLangOn] = useRecoilState(langOnState);
@@ -32,6 +33,7 @@ function App() {
             <Route path="service" element={<Service />} />
             <Route path="/article" element={<Article />} />
             <Route path="/article/detail" element={<Detail />} />
+            <Route path="/recruit" element={<Recruit />} />
           </Route>
           <Route path="/company" element={<CompanyLayout />}>
             <Route index element={<IntroPage />} />

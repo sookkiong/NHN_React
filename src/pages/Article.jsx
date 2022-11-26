@@ -10,7 +10,7 @@ import {
   IntroSpan,
   IntroTop,
 } from "./Intro";
-import { article, articles } from "../components/article/article";
+import { articles } from "../components/article/article";
 import styled from "styled-components";
 import { useNavigate } from "react-router";
 
@@ -39,7 +39,11 @@ const Article = () => {
             paddingBottom: "20px",
           }}
         >
-          전체 <span style={{ color: "#e72f2c", fontWeight: "600" }}>7</span>건
+          전체{" "}
+          <span style={{ color: "#e72f2c", fontWeight: "600" }}>
+            {articles.length}
+          </span>
+          건
         </div>
 
         <ArtUL>

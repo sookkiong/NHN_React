@@ -8,8 +8,8 @@ const ArticleIn = () => {
   const [searchParams] = useSearchParams();
   const id = Number(searchParams.get("id"));
   const article = articles.find((element) => element.id === id);
-  const nextArticle = articles.find((element) => element.id === id + 1)?.title;
   const prevArticle = articles.find((element) => element.id === id - 1)?.title;
+  const nextArticle = articles.find((element) => element.id === id + 1)?.title;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -25,7 +25,7 @@ const ArticleIn = () => {
             <Summary>{article.summary}</Summary>
 
             <Image>
-              <img src={article.image} width="100%" />
+              <img src={article.image} width="70%" />
             </Image>
 
             <Content>{article.content}</Content>
@@ -36,7 +36,7 @@ const ArticleIn = () => {
               <ButtonSpan>이전 글</ButtonSpan>
               <GoButton
                 onClick={() => {
-                  navigate(`/article/detail?id=${Number(article.id) - 1}`);
+                  navigate(`/article/detail?id=${id - 1}`);
                 }}
                 disabled={!prevArticle}
               >
@@ -55,7 +55,7 @@ const ArticleIn = () => {
               <GoButton
                 id="right"
                 onClick={() => {
-                  navigate(`/article/detail?id=${Number(article.id) + 1}`);
+                  navigate(`/article/detail?id=${id + 1}`);
                 }}
                 disabled={!nextArticle}
               >
@@ -151,8 +151,7 @@ const Summary = styled.div`
   line-height: 28px;
 `;
 const Image = styled.div`
-  width: 80%;
-
+  width: 100%;
   padding: 80px 0;
   text-align: center;
 `;

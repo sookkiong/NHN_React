@@ -139,7 +139,7 @@ const Tag = styled.div`
   }
 `;
 
-const Footer = styled.footer`
+export const Footer = styled.footer`
   padding: 40px 12%;
   border-top: 1px solid #fff;
   display: flex;
@@ -147,15 +147,15 @@ const Footer = styled.footer`
   background-color: #e72f2c;
 `;
 
-const FContainer = styled.div`
+export const FContainer = styled.div`
   display: flex;
 `;
-const FLogo = styled.div`
+export const FLogo = styled.div`
   display: flex;
   align-items: center;
 `;
 
-const FLinkContainer = styled.ul`
+export const FLinkContainer = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
@@ -164,19 +164,19 @@ const FLinkContainer = styled.ul`
   align-items: center;
 `;
 
-const FList = styled.li`
+export const FList = styled.li`
   margin-right: 20px;
   &#sepa {
     color: #ccc;
     font-size: 13px;
   }
 `;
-const FLink = styled.a`
+export const FLink = styled.a`
   color: #fff;
   text-decoration: none;
   cursor: pointer;
 `;
-const Fsns = styled.a`
+export const Fsns = styled.a`
   display: block;
   width: 22px;
   height: 22px;

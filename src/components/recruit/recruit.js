@@ -1,5 +1,6 @@
 export const card = [
   {
+    id: "1",
     category: "[NHN][게임]",
     content: (
       <span>
@@ -12,6 +13,7 @@ export const card = [
     bg: "/img/cardbg1.png",
   },
   {
+    id: "2",
     category: "[NHN][NHN Cloud]",
     content: (
       <span>
@@ -24,6 +26,7 @@ export const card = [
     bg: "/img/cardbg2.png",
   },
   {
+    id: "3",
     category: "[NHN][NHN Cloud]",
     content: (
       <span>

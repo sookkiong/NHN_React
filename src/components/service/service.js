@@ -1,7 +1,19 @@
 import styled from "styled-components";
 
 export const serviceList = [
-  ["#", "게임", "프렌즈팝", "한게임", "야구9단"],
+  [
+    { id: "#" },
+    { id: "게임" },
+    {
+      id: "프렌즈팝",
+      url: "https://play.google.com/store/apps/details?id=com.nhnpixelcube.friendspop&hl=ko&gl=US",
+    },
+    { id: "한게임", url: "https://www.hangame.com/" },
+    {
+      id: "건즈업!",
+      url: "https://play.google.com/store/apps/details?id=com.nhn.gunsup&hl=ko&gl=US",
+    },
+  ],
   ["결제", "페이코", "NHN KCP", "컨텐츠"],
   ["코미코", "티켓링크", "벅스", "커머스"],
   ["샵바이", "IT", "NHN클라우드", "에듀테크"],

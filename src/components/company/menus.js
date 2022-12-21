@@ -58,6 +58,14 @@ export const CircleData = [
   },
 ];
 
+export const FiveEthics = [
+  "고객에 대한 책임",
+  "주주에 대한 책임",
+  "임직원에 대한 책임",
+  "협력업체에 대한 책임",
+  "사회에 대한 책임",
+];
+
 export const EthicData = [
   {
     title: "고객에 대한 책임",
@@ -67,6 +75,8 @@ export const EthicData = [
     subTitle2: "고객으로부터의 신뢰",
     subContent2:
       "고객에게 정직함으로써 고객으로부터 절대적인 신뢰를 받고, 고객의 의견에 항상 귀 기울입니다.",
+    background_1: 1,
+    background_2: 2,
   },
   {
     title: "주주에 대한 책임",
@@ -76,6 +86,8 @@ export const EthicData = [
     subTitle2: "투명한 정보 제공",
     subContent2:
       "주주와의 신뢰를 유지하기 위하여 투명성을 제고하고 각종 경영정보를 적시에 제공합니다.",
+    background_1: 3,
+    background_2: 4,
   },
   {
     title: "임직원에 대한 책임",
@@ -85,6 +97,8 @@ export const EthicData = [
     subTitle2: "공정과 평등",
     subContent2:
       "모든 임직원을 능력과 성과에 따라 합리적으로대우하며 공정한 기회를 제공합니다.",
+    background_1: 5,
+    background_2: 6,
   },
   {
     title: "협력업체에 대한 책임",
@@ -94,6 +108,8 @@ export const EthicData = [
     subTitle2: "공동의 발전 추구",
     subContent2:
       "공정한 거래질서를 유지하고, 경쟁사와는 선의의 경쟁을 통해 시장의 발전을 함께 추구한다.",
+    background_1: 7,
+    background_2: 8,
   },
   {
     title: "사회에 대한 책임",
@@ -103,5 +119,7 @@ export const EthicData = [
     subTitle2: "고객으로부터의 신뢰",
     subContent2:
       "회사의 이익과 사회적 가치가 상출될 때는 사회적 가치를 우선적으로 고려합니다.",
+    background_1: 9,
+    background_2: 10,
   },
 ];

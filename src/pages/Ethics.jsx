@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { CircleData, EthicData } from "../components/company/menus";
+import { CircleData, EthicData, FiveEthics } from "../components/company/menus";
 
 const Ethics = () => {
   let [circle, setCircle] = useState("");
@@ -33,11 +33,11 @@ const Ethics = () => {
                   <RowTitle>{value.title}</RowTitle>
 
                   <RowBox>
-                    <Box>
+                    <Box bg={value.background_1}>
                       <SubTitle>{value.subTitle1}</SubTitle>
                       <SubContent>{value.subContent1}</SubContent>
                     </Box>
-                    <Box>
+                    <Box bg={value.background_2}>
                       <SubTitle>{value.subTitle2}</SubTitle>
                       <SubContent>{value.subContent2}</SubContent>
                     </Box>
@@ -136,4 +136,5 @@ const RowBox = styled.div`
 const Box = styled.div`
   width: 40%;
   border-bottom: 1px solid #ccc;
+  background: url("/img/bl_${(props) => props.bg}.png") no-repeat right 80%;
 `;

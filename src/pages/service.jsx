@@ -17,7 +17,11 @@ const Service = () => {
             return (
               <TagRow id={row.includes("기타") ? "end" : undefined}>
                 {row.map((value) => {
-                  return <Tag id={value === "#" ? "샵" : value}>{value}</Tag>;
+                  return (
+                    <Tag id={value.id === "#" ? "샵" : value.id}>
+                      {value.id}
+                    </Tag>
+                  );
                 })}
               </TagRow>
             );

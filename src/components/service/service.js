@@ -14,10 +14,35 @@ export const serviceList = [
       url: "https://play.google.com/store/apps/details?id=com.nhn.gunsup&hl=ko&gl=US",
     },
   ],
-  ["결제", "페이코", "NHN KCP", "컨텐츠"],
-  ["코미코", "티켓링크", "벅스", "커머스"],
-  ["샵바이", "IT", "NHN클라우드", "에듀테크"],
-  ["아이엠스쿨", "기타", "핑크다이어리"],
+  [
+    { id: "결제" },
+    { id: "페이코", url: "https://www.payco.com/" },
+    { id: "NHN KCP", url: "https://www.kcp.co.kr/main.do" },
+    { id: "컨텐츠" },
+  ],
+  [
+    { id: "코미코", url: "https://www.comico.kr/" },
+    { id: "티켓링크", url: "http://www.ticketlink.co.kr/home" },
+    { id: "벅스", url: "https://music.bugs.co.kr/" },
+    { id: "커머스" },
+  ],
+  [
+    { id: "샵바이", url: "https://www.nhn-commerce.com/" },
+    { id: "IT" },
+    { id: "NHN클라우드", url: "https://www.toast.com/kr" },
+    { id: "에듀테크" },
+  ],
+  [
+    { id: "아이엠스쿨", url: "https://school.iamservice.net/" },
+    {
+      id: "기타",
+      url: "https://play.google.com/store/apps/details?id=com.dnt7.threeW&hl=ko&gl=US",
+    },
+    {
+      id: "핑크다이어리",
+      url: "https://play.google.com/store/apps/details?id=com.dnt7.threeW&hl=ko&gl=US",
+    },
+  ],
 ];
 
 export const Mails = () => {

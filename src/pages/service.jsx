@@ -8,17 +8,32 @@ const Service = () => {
         <div style={{ paddingTop: "50px" }}>
           <TitleSpan id="title">서비스</TitleSpan>
           <TitleSpan id="subTitle">
-            NHN이 제공하는 다양한 서비스들을 만나보세요!
+            태그를 클릭해 NHN이 제공하는 다양한 서비스들을 만나보세요!
           </TitleSpan>
         </div>
 
         <TagContainer>
           {serviceList.map((row) => {
             return (
-              <TagRow id={row.includes("기타") ? "end" : undefined}>
+              <TagRow
+                id={
+                  row.find((element) => element.id === "기타")
+                    ? "end"
+                    : undefined
+                }
+              >
                 {row.map((value) => {
                   return (
-                    <Tag id={value.id === "#" ? "샵" : value.id}>
+                    <Tag
+                      id={value.id === "#" ? "샵" : value.id}
+                      onClick={
+                        value.url
+                          ? () => {
+                              window.open(value.url);
+                            }
+                          : undefined
+                      }
+                    >
                       {value.id}
                     </Tag>
                   );
@@ -123,23 +138,25 @@ const Tag = styled.div`
   border-radius: 50px;
   padding: 5px 40px;
   cursor: pointer;
+  &:hover {
+    background: #fff;
+    color: #e72f2c;
+  }
   &#아이엠스쿨,
   &#기타 {
     margin-right: 50px;
   }
   &#샵,
   &#게임,
-  &#한게임,
   &#결제,
-  &#페이코,
   &#컨텐츠,
-  &#티켓링크,
   &#커머스,
   &#IT,
   &#에듀테크,
   &#기타 {
     background-color: #fff;
     color: #e72f2c;
+    cursor: default;
   }
 `;
 

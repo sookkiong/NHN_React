@@ -9,8 +9,11 @@ import {
   Footer,
   Fsns,
 } from "./service";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const Recruit = () => {
+  let navigate = useNavigate();
+
   return (
     <>
       <Container>
@@ -71,7 +74,9 @@ const Recruit = () => {
             <Table>
               {notice.map((value) => {
                 return (
-                  <Tr>
+                  <Tr
+                    onClick={() => navigate(`/recruit/notice?id=${value.id}`)}
+                  >
                     <Td id="under">{value.title}</Td>
                     <Td>{value.date}</Td>
                   </Tr>
@@ -98,7 +103,7 @@ const Recruit = () => {
               {recruit.map((value) => {
                 return (
                   <Tr onClick={() => window.open(value.url)}>
-                    <Td>{value.title}</Td>
+                    <Td id="under">{value.title}</Td>
                     <Td>{value.date}</Td>
                   </Tr>
                 );
@@ -261,16 +266,15 @@ const Table = styled.table`
   margin: 0;
   padding: 0;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 15px;
   border-top: 1px solid #fff;
 `;
 
 const Tr = styled.tr`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8px;
   width: 100%;
-  margin: 10px 0;
+  margin: 15px 0;
   color: #fff;
   cursor: pointer;
   &:hover {

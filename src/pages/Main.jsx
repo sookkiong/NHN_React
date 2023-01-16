@@ -1,39 +1,14 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
-import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import Sliders from "../components/MainSlider";
 
 const MainPage = () => {
   const list = [1, 2, 3];
-  let [slideNum, setSlideNum] = useState(list);
 
   return (
     <>
       <MainStyle>
-        <CarouselBox>
-          <div className="flexbox" style={{ display: "flex", height: "100%" }}>
-            <SlideBox
-              className="img"
-              bg="'/img/slide1_img.png'"
-              size="63%"
-            ></SlideBox>
-            <SlideBox
-              className="img"
-              bg="'/img/slide2_img.png'"
-              size="44%"
-            ></SlideBox>
-            <SlideBox
-              className="img"
-              bg="'/img/slide3_img.png'"
-              size="63%"
-            ></SlideBox>
-            <SlideBox
-              className="img"
-              bg="'/img/slide4_img.png'"
-              size="55%"
-            ></SlideBox>
-          </div>
-        </CarouselBox>
+        <Sliders />
 
         <Footer>
           <div style={{ display: "flex", justifyContent: "space-between" }}>

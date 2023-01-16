@@ -48,14 +48,19 @@ const Sliders = () => {
 export default Sliders;
 
 const MainSlideStyle = styled(Slider)`
-  .slick-slide.slick-active.slick-current > div > div {
-    display: flex;
+  .slick-slide {
+    position: relative;
+    height: 33vw;
+    border: 1px solid blue;
   }
 `;
 
 const TextBox = styled.div`
   width: 30%;
+  height: 500px;
   border: 1px solid blue;
+  position: absolute;
+  left: 0;
 `;
 const SlideBg = styled.div`
   background: url("/img/slide${(props) => props.bg}.png") no-repeat center
@@ -64,4 +69,6 @@ const SlideBg = styled.div`
   width: 50%;
   height: 500px;
   border: 1px solid #fff;
+  position: absolute;
+  right: 0;
 `;

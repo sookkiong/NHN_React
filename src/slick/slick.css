@@ -17,6 +17,7 @@
         touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
     
+    
 }
 
 .slick-list
@@ -28,6 +29,7 @@
 
     margin: 0;
     padding: 0;
+    border-bottom: 1px solid #fff;
     
 
 }

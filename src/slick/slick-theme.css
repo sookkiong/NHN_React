@@ -107,7 +107,7 @@
 .slick-dots
 {
     position: absolute;
-    bottom: -25px;
+    
 
     display: block;
 
@@ -123,11 +123,11 @@
 {
     position: relative;
 
-    display: inline-block;
+    display: block;
 
-    width: 20px;
+    width: 100px;
     height: 20px;
-    margin: 0 5px;
+    margin: 15px 0;
     padding: 0;
 
     cursor: pointer;
@@ -139,9 +139,9 @@
 
     display: block;
 
-    width: 20px;
+    width: 100px;
     height: 20px;
-    padding: 5px;
+    
 
     cursor: pointer;
 
@@ -160,30 +160,111 @@
 {
     opacity: 1;
 }
-.slick-dots li button:before
+
+.slick-dots li:nth-child(1) button:before
 {
     font-family: 'slick';
-    font-size: 6px;
-    line-height: 20px;
+    font-size: 16px;
 
     position: absolute;
     top: 0;
     left: 0;
 
-    width: 20px;
+    width: 100px;
     height: 20px;
+    font-weight: 600;
+    padding: 12px 0;
+    
 
-    content: '•';
+
+    content: 'PAYCO';
     text-align: center;
 
     opacity: .25;
-    color: black;
+    color: rgba(255,255,255,0.9);
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+.slick-dots li:nth-child(2) button:before
+{
+    font-family: 'slick';
+    font-size: 16px;
+    
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100px;
+    height: 20px;
+    font-weight: 600;
+    padding: 12px 0;
+    
+
+
+    content: 'HANGAME';
+    text-align: center;
+
+    opacity: .25;
+    color: rgba(255,255,255,0.9);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.slick-dots li:nth-child(3) button:before
+{
+    font-family: 'slick';
+    font-size: 16px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100px;
+    height: 20px;
+    font-weight: 600;
+    padding: 12px 0;
+
+
+    content: 'COMICO';
+    text-align: center;
+
+    opacity: .25;
+    color: rgba(255,255,255,0.9);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.slick-dots li:nth-child(4) button:before
+{
+    font-family: 'slick';
+    font-size: 16px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100px;
+    height: 20px;
+    font-weight: 600;
+    padding: 12px 0;
+
+
+    content: 'BUGS';
+    text-align: center;
+
+    opacity: .25;
+    color: rgba(255,255,255,0.9);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 .slick-dots li.slick-active button:before
 {
-    opacity: .75;
-    color: black;
+    opacity: 1;
+    color: white;
+    border: 2px solid #fff;
+    border-radius: 10px;
 }

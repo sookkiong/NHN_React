@@ -49,13 +49,6 @@ const MainStyle = styled.div`
   border: none;
 `;
 
-const CarouselBox = styled.div`
-  width: 65%;
-  height: 70%;
-  background: #000;
-  border-bottom: 1px solid #fff;
-`;
-
 const Footer = styled.footer`
   width: 65%;
   padding-top: 50px;

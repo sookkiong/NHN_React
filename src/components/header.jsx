@@ -1,8 +1,8 @@
-import { useState } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { langOnState, sideOnState } from "../store/state";
+import SideBox from "./main/SideInfo";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -20,40 +20,18 @@ const Header = () => {
 
   return (
     <StyledHeader id={location.pathname === "/" ? "home" : undefined}>
-      <nav
-        style={{
-          display: "flex",
-          width: "80%",
-          justifyContent: "space-between",
-        }}
-      >
+      <HeaderInner>
         <MainLogo src="/img/mainlogo.png" onClick={() => navigate("/")} />
-        <ul
-          className="gnb"
-          style={{
-            display: "flex",
-            listStyle: "none",
-            margin: "0",
-            padding: "0",
-            width: "45%",
-            justifyContent: "space-between",
-          }}
-        >
+
+        <MainNav>
           {tabList.map((tab) => (
             <MenuList onClick={() => navigate(`/${tab.id}`)}>
               {tab.name}
             </MenuList>
           ))}
-        </ul>
+        </MainNav>
 
-        <div
-          id="h_right"
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            width: "7%",
-          }}
-        >
+        <LangNNews>
           <SideButton
             id="lang"
             onClick={(e) => {
@@ -63,18 +41,10 @@ const Header = () => {
           >
             <img src="/img/lang.png" />
             {langOn ? (
-              <ul
-                style={{
-                  position: "absolute",
-                  padding: "0",
-                  bottom: "-85px",
-                  right: "-25px",
-                  backgroundColor: "rgba(255,255,255,0.5)",
-                }}
-              >
+              <LangBox>
                 <LangList>한국어</LangList>
                 <LangList>ENG</LangList>
-              </ul>
+              </LangBox>
             ) : null}
           </SideButton>
 
@@ -86,10 +56,10 @@ const Header = () => {
             }}
           >
             <img src="/img/side.png" />
-            {sideOn ? <SideInfo /> : null}
+            {sideOn ? <SideBox /> : null}
           </SideButton>
-        </div>
-      </nav>
+        </LangNNews>
+      </HeaderInner>
     </StyledHeader>
   );
 };
@@ -110,11 +80,29 @@ const StyledHeader = styled.header`
     top: 0;
   }
 `;
+const HeaderInner = styled.div`
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+`;
 
 const MainLogo = styled.img`
-  width: 8%;
+  width: 9%;
   height: auto;
   cursor: pointer;
+`;
+const MainNav = styled.ul`
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 45%;
+  justify-content: space-between;
+`;
+const LangNNews = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 7%;
 `;
 
 const SideButton = styled.button`
@@ -124,6 +112,13 @@ const SideButton = styled.button`
     position: relative;
   }
   cursor: pointer;
+`;
+const LangBox = styled.ul`
+  position: absolute;
+  padding: 0;
+  bottom: -85px;
+  right: -25px;
+  background-color: rgba(255, 255, 255, 0.5);
 `;
 
 const LangList = styled.li`
@@ -144,7 +139,6 @@ const SideInfo = styled.div`
   width: 20%;
   height: 100%;
   background: #e72f2c;
-  box-shadow: 0px 3px 8px rgba(0, 0, 0, 40%);
 `;
 
 const MenuList = styled.li`

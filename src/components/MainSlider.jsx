@@ -1,10 +1,13 @@
 import Slider from "react-slick";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import { sliderItem } from "./main/main";
 import "../slick/slick.css";
 import "../slick/slick-theme.css";
 
 const Sliders = () => {
+  const navigate = useNavigate();
+
   const settings = {
     dots: true,
     infinite: true,
@@ -18,17 +21,11 @@ const Sliders = () => {
   };
 
   return (
-    <div
-      style={{
-        width: "65%",
-        height: "65%",
-        marginTop: "5%",
-      }}
-    >
+    <Wrapper>
       <MainSlideStyle {...settings}>
         {sliderItem.map((v) => {
           return (
-            <div>
+            <div onClick={() => window.open(v.url)}>
               <TextBox>
                 <div
                   style={{
@@ -56,7 +53,7 @@ const Sliders = () => {
           );
         })}
       </MainSlideStyle>
-    </div>
+    </Wrapper>
   );
 };
 
@@ -66,10 +63,11 @@ const Wrapper = styled.div`
   width: 65%;
   height: 65%;
   margin-top: 5%;
+  cursor: pointer;
 `;
 
 const TextBox = styled.div`
-  width: 40%;
+  width: 45%;
   position: absolute;
   left: 0;
   top: 10%;

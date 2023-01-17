@@ -267,7 +267,7 @@ export default IntroPage;
 
 export const IntroTop = styled.div`
   width: 100%;
-  height: 520px;
+  height: 33vw;
   background: url("/img/introbg.png") no-repeat center bottom;
   background-size: cover;
 `;

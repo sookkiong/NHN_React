@@ -153,6 +153,7 @@ const MenuList = styled.li`
   color: #fff;
   font-weight: 500;
   cursor: pointer;
+  padding: 3px 0;
   &:hover {
     background: #fff;
     color: #e72f2c;

@@ -65,7 +65,7 @@ const CompanyLayout = () => {
         </IntroInner>
       </IntroTop>
 
-      <GoTop>↑</GoTop>
+      <GoTop onClick={() => window.scrollTo(0, 0)}>↑</GoTop>
 
       <Outlet />
 

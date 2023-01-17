@@ -9,7 +9,7 @@ const Header = () => {
   const location = useLocation();
 
   const tabList = [
-    { id: "company/intro", name: "소개" },
+    { id: "company", name: "소개" },
     { id: "service", name: "서비스" },
     { id: "article", name: "보도자료" },
     { id: "recruit", name: "채용" },
@@ -25,7 +25,12 @@ const Header = () => {
 
         <MainNav>
           {tabList.map((tab) => (
-            <MenuList onClick={() => navigate(`/${tab.id}`)}>
+            <MenuList
+              id={location.pathname.includes(tab.id) ? "selected" : undefined}
+              onClick={() => {
+                navigate(`/${tab.id}`);
+              }}
+            >
               {tab.name}
             </MenuList>
           ))}
@@ -149,6 +154,12 @@ const MenuList = styled.li`
   cursor: pointer;
   padding: 3px 0;
   &:hover {
+    background: #fff;
+    color: #e72f2c;
+    border-radius: 14px;
+    font-weight: 600;
+  }
+  &#selected {
     background: #fff;
     color: #e72f2c;
     border-radius: 14px;

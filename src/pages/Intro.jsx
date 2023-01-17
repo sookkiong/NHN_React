@@ -327,9 +327,11 @@ export const GoTop = styled.button`
   line-height: 50px;
   position: fixed;
   right: 0;
-  bottom: 0;
+  bottom: 1px;
   border: 1px solid #e72f2c;
   z-index: 1000;
+  cursor: pointer;
+  box-sizing: border-box;
 `;
 
 const Para = styled.div`

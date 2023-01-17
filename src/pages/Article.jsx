@@ -6,6 +6,7 @@ import {
   FLogo,
   Footer,
   Fsns,
+  GoTop,
   IntroInner,
   IntroSpan,
   IntroTop,
@@ -29,6 +30,8 @@ const Article = () => {
           </IntroSpan>
         </IntroInner>
       </IntroTop>
+
+      <GoTop onClick={() => window.scrollTo(0, 0)}>↑</GoTop>
 
       <div style={{ margin: "100px 18% 50px" }}>
         <div

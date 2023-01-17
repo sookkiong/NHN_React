@@ -1,13 +1,13 @@
 import Slider from "react-slick";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { sliderItem } from "./main/main";
 import "../slick/slick.css";
 import "../slick/slick-theme.css";
+import { useState } from "react";
 
 const Sliders = () => {
-  const navigate = useNavigate();
-
+  const [up, setUp] = useState("");
   const settings = {
     dots: true,
     infinite: true,
@@ -16,9 +16,13 @@ const Sliders = () => {
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 3500,
     pauseOnHover: false,
   };
+
+  useEffect(() => {
+    setUp("up");
+  }, []);
 
   return (
     <Wrapper>
@@ -48,7 +52,7 @@ const Sliders = () => {
                 })}
               </TextBox>
 
-              <SlideBg bg={v.id}></SlideBg>
+              <SlideBg id={up} bg={v.id}></SlideBg>
             </div>
           );
         })}
@@ -80,7 +84,12 @@ const SlideBg = styled.div`
   height: 100%;
   position: absolute;
   right: 0;
+  bottom: -100%;
   z-index: 1;
+  transition: all 1s;
+  &#up {
+    bottom: 0;
+  }
 `;
 const MainSlideStyle = styled(Slider)`
   .slick-slide {

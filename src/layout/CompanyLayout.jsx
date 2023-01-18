@@ -43,7 +43,6 @@ const CompanyLayout = () => {
               : tabMenu[1].name}
           </IntroSpan>
           <IntroSpan size="16px" spacing="1px">
-            /
             {location.pathname.includes("intro")
               ? tabMenu[0].des
               : tabMenu[1].des}

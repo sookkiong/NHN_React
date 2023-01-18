@@ -45,7 +45,7 @@ const Article = () => {
         <div>
           {articles.map((v) => {
             return (
-              <Item>
+              <Item onClick={() => navigate(`/article/detail?id=${v.id}`)}>
                 <div>
                   <div id="title" style={{ fontWeight: "500" }}>
                     {v.title}

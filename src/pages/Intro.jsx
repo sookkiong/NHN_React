@@ -329,7 +329,7 @@ export const GoTop = styled.button`
   right: 0;
   bottom: 1px;
   border: 1px solid #e72f2c;
-  z-index: 1000;
+  z-index: 200;
   cursor: pointer;
   box-sizing: border-box;
 `;

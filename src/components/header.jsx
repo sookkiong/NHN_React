@@ -92,7 +92,7 @@ const HeaderInner = styled.div`
 `;
 
 const MainLogo = styled.img`
-  width: 9%;
+  width: 110px;
   height: auto;
   cursor: pointer;
 `;

@@ -1,7 +1,16 @@
 import styled from "styled-components";
 import { serviceList } from "../components/service/service";
+import { useInView } from "react-intersection-observer";
+import { useState, useEffect } from "react";
 
 const Service = () => {
+  const [up, setUp] = useState("");
+  const upRef = useInView();
+
+  useEffect(() => {
+    setUp("up");
+  }, [upRef.inView]);
+
   return (
     <>
       <Container>
@@ -21,6 +30,8 @@ const Service = () => {
                     ? "end"
                     : undefined
                 }
+                className={up}
+                ref={upRef.ref}
               >
                 {row.map((value) => {
                   return (
@@ -125,8 +136,13 @@ const TagRow = styled.div`
   display: flex;
   justify-content: space-between;
   padding-bottom: 50px;
+  margin-top: 100px;
+  transition: all 1s;
   &#end {
     justify-content: flex-start;
+  }
+  &.up {
+    margin-top: 0;
   }
 `;
 

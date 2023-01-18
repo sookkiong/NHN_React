@@ -40,7 +40,14 @@ const SideBox = () => {
           </List>
         );
       })}
-      <More>뉴스 더 보기</More>
+      <More
+        onClick={() => {
+          navigate("/article");
+          setOn(false);
+        }}
+      >
+        뉴스 더 보기
+      </More>
     </Wrapper>
   );
 };
@@ -59,6 +66,7 @@ const Wrapper = styled.div`
   cursor: default;
   text-align: left;
   padding: 20px;
+  z-index: 1000;
 `;
 const Close = styled.button`
   border: none;

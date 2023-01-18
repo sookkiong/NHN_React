@@ -34,55 +34,41 @@ const Article = () => {
       <GoTop onClick={() => window.scrollTo(0, 0)}>↑</GoTop>
 
       <div style={{ margin: "100px 18% 50px" }}>
-        <div
-          style={{
-            width: "100%",
-            fontWeight: "500",
-            borderBottom: "2px solid #000",
-            paddingBottom: "20px",
-          }}
-        >
+        <CountingBox>
           전체{" "}
           <span style={{ color: "#e72f2c", fontWeight: "600" }}>
             {articles.length}
           </span>
           건
-        </div>
+        </CountingBox>
 
-        <ArtUL>
-          {articles.map((value) => {
+        <div>
+          {articles.map((v) => {
             return (
-              <ArtList
-                onClick={() => {
-                  navigate(`/article/detail?id=${value.id}`);
-                }}
-              >
-                <ArtiLeft>
-                  <div
-                    id="artiTitle"
-                    style={{ marginBottom: "20px", fontWeight: "500" }}
-                  >
-                    {value.title}
+              <Item>
+                <div>
+                  <div id="title" style={{ fontWeight: "500" }}>
+                    {v.title}
                   </div>
                   <div
                     style={{
+                      margin: "20px 0 45px",
                       color: "#7c7c7c",
-                      fontSize: "14px",
-                      marginBottom: "50px",
+                      fontSize: "15px",
                     }}
                   >
-                    {value.list}
+                    {v.list}
                   </div>
-                  <div style={{ color: "#7c7c7c", fontSize: "12px" }}>
-                    {value.date}
+                  <div style={{ fontSize: "14px", color: "#7c7c7c" }}>
+                    {v.date}
                   </div>
-                </ArtiLeft>
+                </div>
 
-                {value.image ? <ImgBox id={"arti" + value.id}></ImgBox> : null}
-              </ArtList>
+                {v.id % 2 != 0 ? <ImgBox bg={v.id} /> : undefined}
+              </Item>
             );
           })}
-        </ArtUL>
+        </div>
       </div>
 
       <Footer>
@@ -125,44 +111,31 @@ const Article = () => {
 
 export default Article;
 
-const ArtUL = styled.ul`
+const CountingBox = styled.div`
   width: 100%;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-`;
-
-const ArtList = styled.li`
-  display: flex;
-  border-bottom: 1px solid #ccc;
-  width: 100%;
-  padding: 50px 0;
-  cursor: pointer;
-  &:hover {
-    #artiTitle {
-      text-decoration: underline;
-    }
-  }
+  font-weight: 500;
+  border-bottom: 2px solid #000;
+  padding-bottom: 20px;
 `;
 
 const ImgBox = styled.div`
-  width: 500px;
-  margin-left: 30px;
-  &#arti1 {
-    background: url("/img/article_photo1.png") no-repeat center center;
-    background-size: cover;
-  }
-  &#arti3 {
-    background: url("/img/article_photo3.png") no-repeat center center;
-    background-size: cover;
-  }
-  &#arti6 {
-    background: url("/img/article_photo6.png") no-repeat center -70px;
-    background-size: cover;
-  }
+  width: 35rem;
+  height: 10rem;
+  background: url("/img/article_photo${(props) => props.bg}.png") no-repeat
+    center center;
+  background-size: cover;
+  margin-left: 20px;
 `;
-
-const ArtiLeft = styled.div`
+const Item = styled.div`
   display: flex;
-  flex-direction: column;
+  align-content: center;
+  padding: 30px 0;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+
+  &:hover {
+    #title {
+      text-decoration: underline;
+    }
+  }
 `;

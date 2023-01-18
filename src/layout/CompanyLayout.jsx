@@ -22,9 +22,12 @@ import { tabMenu } from "../components/company/menus";
 const CompanyLayout = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
   const TabChange = (value) => {
-    const id = location.pathname.includes(value) ? "nowOn" : undefined;
+    const id = location.pathname.includes(value)
+      ? "nowOn"
+      : location.pathname === "/company" && value === "intro"
+      ? "nowOn"
+      : undefined;
     return id;
   };
 
@@ -40,6 +43,7 @@ const CompanyLayout = () => {
               : tabMenu[1].name}
           </IntroSpan>
           <IntroSpan size="16px" spacing="1px">
+            /
             {location.pathname.includes("intro")
               ? tabMenu[0].des
               : tabMenu[1].des}

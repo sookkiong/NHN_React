@@ -101,7 +101,7 @@ const MainSlideStyle = styled(Slider)`
     display: block;
     width: fit-content;
     right: -15%;
-    top: 45%;
+    top: 35%;
     padding: 0;
     margin: 0;
     list-style: none;

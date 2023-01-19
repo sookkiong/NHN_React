@@ -59,7 +59,7 @@ const Wrapper = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  width: 20%;
+  width: 25%;
   height: 100%;
   background: #e72f2c;
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 40%);
@@ -67,14 +67,11 @@ const Wrapper = styled.div`
   text-align: left;
   padding: 20px;
   z-index: 1000;
-  @media all and (max-width: 960px) {
-    width: 30%;
-  }
 `;
 const Close = styled.button`
   border: none;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
   background: url("/img/close.png") no-repeat center center;
   background-size: contain;
@@ -96,10 +93,8 @@ const ListAni = keyframes`
         border-bottom: 1px solid #fff;
     }
 `;
-
 const List = styled.div`
   padding-bottom: 15px;
-  height: 60%;
   font-size: 16px;
   text-align: justify;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
@@ -116,13 +111,6 @@ const List = styled.div`
     animation-direction: alternate;
     font-weight: 600;
     animation-fill-mode: fowards;
-  }
-  @media all and (max-width: 960px) {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    height: 7%;
-    padding-bottom: 0;
   }
 `;
 const More = styled.div`

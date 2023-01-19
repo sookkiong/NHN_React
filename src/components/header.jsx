@@ -19,10 +19,9 @@ const Header = () => {
   let [sideOn, setSideOn] = useRecoilState(sideOnState);
 
   return (
-    <StyledHeader id={location.pathname === "/" ? "home" : undefined}>
+    <Wrapper id={location.pathname === "/" ? "home" : undefined}>
       <HeaderInner>
         <MainLogo src="/img/mainlogo.png" onClick={() => navigate("/")} />
-
         <MainNav>
           {tabList.map((tab) => (
             <MenuList
@@ -35,7 +34,6 @@ const Header = () => {
             </MenuList>
           ))}
         </MainNav>
-
         <LangNNews>
           <SideButton
             id="lang"
@@ -64,14 +62,45 @@ const Header = () => {
             {sideOn ? <SideBox /> : null}
           </SideButton>
         </LangNNews>
+
+        <MainNav_tab />
+        <MainLogo_tab onClick={() => navigate("/")} />
+        <LangNNews_tab>
+          <SideButton
+            id="lang"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLangOn(!langOn);
+            }}
+          >
+            <img src="/img/lang.png" />
+            {langOn ? (
+              <LangBox>
+                <LangList>한국어</LangList>
+                <LangList>ENG</LangList>
+              </LangBox>
+            ) : null}
+          </SideButton>
+
+          <SideButton
+            id="smallPage"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSideOn(!sideOn);
+            }}
+          >
+            <img src="/img/side.png" />
+            {sideOn ? <SideBox /> : null}
+          </SideButton>
+        </LangNNews_tab>
       </HeaderInner>
-    </StyledHeader>
+    </Wrapper>
   );
 };
 
 export default Header;
 
-const StyledHeader = styled.header`
+const Wrapper = styled.header`
   display: flex;
   justify-content: center;
   width: 100%;
@@ -95,6 +124,9 @@ const MainLogo = styled.img`
   width: 110px;
   height: auto;
   cursor: pointer;
+  @media all and (max-width: 960px) {
+    display: none;
+  }
 `;
 const MainNav = styled.ul`
   display: flex;
@@ -103,11 +135,17 @@ const MainNav = styled.ul`
   padding: 0;
   width: 45%;
   justify-content: space-between;
+  @media all and (max-width: 960px) {
+    display: none;
+  }
 `;
 const LangNNews = styled.div`
   display: flex;
   justify-content: space-between;
   width: 7%;
+  @media all and (max-width: 960px) {
+    display: none;
+  }
 `;
 
 const SideButton = styled.button`
@@ -137,15 +175,6 @@ const LangList = styled.li`
   }
 `;
 
-const SideInfo = styled.div`
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 20%;
-  height: 100%;
-  background: #e72f2c;
-`;
-
 const MenuList = styled.li`
   width: 20%;
   text-align: center;
@@ -164,5 +193,35 @@ const MenuList = styled.li`
     color: #e72f2c;
     border-radius: 14px;
     font-weight: 600;
+  }
+`;
+
+// 반응형(태블릿:960px / 모바일:550px)
+const MainNav_tab = styled.div`
+  display: none;
+  width: 30px;
+  height: 30px;
+  background: url("/img/ham.png") no-repeat center center;
+  background-size: contain;
+  @media all and (max-width: 960px) {
+    display: block;
+  }
+`;
+const MainLogo_tab = styled.div`
+  display: none;
+  width: 30%;
+  height: 30px;
+  background: url("/img/mainlogo.png") no-repeat center center;
+  background-size: contain;
+  @media all and (max-width: 960px) {
+    display: block;
+  }
+`;
+const LangNNews_tab = styled.div`
+  display: none;
+  @media all and (max-width: 960px) {
+    display: flex;
+    width: 11%;
+    justify-content: space-between;
   }
 `;

@@ -67,6 +67,9 @@ const Wrapper = styled.div`
   text-align: left;
   padding: 20px;
   z-index: 1000;
+  @media all and (max-width: 960px) {
+    width: 30%;
+  }
 `;
 const Close = styled.button`
   border: none;
@@ -96,6 +99,7 @@ const ListAni = keyframes`
 
 const List = styled.div`
   padding-bottom: 15px;
+  height: 60%;
   font-size: 16px;
   text-align: justify;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
@@ -112,6 +116,13 @@ const List = styled.div`
     animation-direction: alternate;
     font-weight: 600;
     animation-fill-mode: fowards;
+  }
+  @media all and (max-width: 960px) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 7%;
+    padding-bottom: 0;
   }
 `;
 const More = styled.div`

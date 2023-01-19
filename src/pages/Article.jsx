@@ -55,6 +55,7 @@ const Article = () => {
                       margin: "20px 0 45px",
                       color: "#7c7c7c",
                       fontSize: "15px",
+                      textAlign: "justify",
                     }}
                   >
                     {v.list}

@@ -75,7 +75,7 @@ const Article = () => {
       <Footer>
         <FContainer>
           <FLogo>
-            <img src="/img/f_logo.png" />
+            <img src="/img/f_logo.png" alt="로고" />
           </FLogo>
           <FLinkContainer>
             <FList>

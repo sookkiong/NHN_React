@@ -31,24 +31,18 @@ const Sliders = () => {
           return (
             <div onClick={() => window.open(v.url)}>
               <TextBox>
-                <div
-                  style={{
-                    fontSize: "70px",
-                    fontWeight: "900",
-                    lineHeight: "1.2",
-                  }}
-                >
-                  {v.title}
-                </div>
-                <div style={{ width: "60%", margin: "15px 0 30px 1px" }}>
+                {v.title.split("\n").map((v) => {
+                  return <Title>{v}</Title>;
+                })}
+                <Banner>
                   <img
                     src={`/img/maintxt${v.id}.png`}
                     alt="슬라이드 텍스트"
                     width="100%"
                   />
-                </div>
+                </Banner>
                 {v.text.split("\n").map((v) => {
-                  return <div style={{ fontSize: "20px" }}>{v}</div>;
+                  return <Explain>{v}</Explain>;
                 })}
               </TextBox>
 
@@ -65,27 +59,47 @@ export default Sliders;
 
 const Wrapper = styled.div`
   width: 65%;
-  height: 65%;
+  height: 35rem;
   margin-top: 5%;
   cursor: pointer;
+  @media all and (max-width: 960px) {
+    width: 80%;
+    height: 30rem;
+  }
 `;
 
 const TextBox = styled.div`
-  width: 45%;
   position: absolute;
   left: 0;
   top: 10%;
   color: #fff;
+  z-index: 5;
+`;
+const Title = styled.div`
+  font-size: 4.5rem;
+  font-weight: 900;
+  line-height: 1.2;
+`;
+const Banner = styled.div`
+  width: 60%;
+  margin: 15px 0 30px 1px;
+`;
+const Explain = styled.div`
+  font-size: 1.3rem;
+  @media all and (max-width: 960px) {
+    display: none;
+  }
 `;
 const SlideBg = styled.div`
   background: url("/img/slide${(props) => props.bg}.png") no-repeat right bottom;
   background-size: contain;
-  width: 70%;
+  width: 100%;
   height: 100%;
   position: absolute;
   right: 0;
   bottom: -100%;
   z-index: 1;
+  border: 1px solid blue;
   transition: all 1s;
   &#up {
     bottom: 0;
@@ -94,17 +108,30 @@ const SlideBg = styled.div`
 const MainSlideStyle = styled(Slider)`
   .slick-slide {
     position: relative;
-    height: 32vw;
+    height: 32rem;
+
+    @media all and (max-width: 960px) {
+    }
   }
   .slick-dots {
     position: absolute;
     display: block;
     width: fit-content;
+    height: fit-content;
     right: -15%;
     top: 35%;
     padding: 0;
     margin: 0;
     list-style: none;
     text-align: center;
+    @media all and (max-width: 960px) {
+      left: 0;
+      top: 87%;
+    }
+  }
+  .slick-dots li {
+    @media all and (max-width: 960px) {
+      float: left;
+    }
   }
 `;

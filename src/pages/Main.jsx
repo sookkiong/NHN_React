@@ -2,34 +2,36 @@ import styled from "styled-components";
 import Sliders from "../components/MainSlider";
 
 const MainPage = () => {
-  const list = [1, 2, 3];
-
   return (
-    <>
-      <MainStyle>
-        <Sliders />
+    <MainStyle>
+      {/* 데스크탑 */}
+      <Sliders />
 
-        <Footer>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <div id="f_left" style={{ display: "flex" }}>
-              <CustomUI id="f_link">
-                <LinkList id="f_list1">개인정보처리방침</LinkList>
-                <LinkList id="f_list2">|</LinkList>
-                <LinkList>대표메일</LinkList>
-              </CustomUI>
-              <CustomUI id="sns">
-                <SnsList bg='"/img/fsns1_w.png"' mr="23px"></SnsList>
-                <SnsList bg='"/img/fsns2_w.png"' mr="20px"></SnsList>
-                <SnsList bg='"/img/fsns3_w.png"'></SnsList>
-              </CustomUI>
-            </div>
-            <div id="f_right" style={{ color: "#fff", fontSize: "14px" }}>
-              Copyright ⓒ NHN Co., Ltd. All rights reserved.
-            </div>
+      {/* 태블릿 */}
+      <WrapperTab>
+        <div></div>
+      </WrapperTab>
+
+      <Footer>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div id="f_left" style={{ display: "flex" }}>
+            <CustomUI id="f_link">
+              <LinkList id="f_list1">개인정보처리방침</LinkList>
+              <LinkList id="f_list2">|</LinkList>
+              <LinkList>대표메일</LinkList>
+            </CustomUI>
+            <CustomUI id="sns">
+              <SnsList bg='"/img/fsns1_w.png"' mr="23px"></SnsList>
+              <SnsList bg='"/img/fsns2_w.png"' mr="20px"></SnsList>
+              <SnsList bg='"/img/fsns3_w.png"'></SnsList>
+            </CustomUI>
           </div>
-        </Footer>
-      </MainStyle>
-    </>
+          <div id="f_right" style={{ color: "#fff", fontSize: "14px" }}>
+            Copyright ⓒ NHN Co., Ltd. All rights reserved.
+          </div>
+        </div>
+      </Footer>
+    </MainStyle>
   );
 };
 
@@ -51,6 +53,9 @@ const MainStyle = styled.div`
 const Footer = styled.footer`
   width: 65%;
   padding-top: 50px;
+  @media all and (max-width: 960px) {
+    width: 80%;
+  }
 `;
 
 const CustomUI = styled.ul`
@@ -70,7 +75,7 @@ const SnsList = styled.li`
   background: url(${(props) => props.bg}) no-repeat center center;
   background-size: contain;
   width: 18px;
-  height: 100%;
+  height: 18px;
   margin-right: ${(props) => props.mr};
 `;
 
@@ -85,9 +90,12 @@ const LinkList = styled.li`
   }
 `;
 
-const SlideBox = styled.div`
-  background: url(${(props) => props.bg}) no-repeat right bottom;
-  background-size: ${(props) => props.size};
-  width: 100%;
-  flex: none;
+/* 반응형 */
+/* 태블릿 */
+const WrapperTab = styled.div`
+  width: 90%;
+  display: none;
+  @media all and (max-width: 960px) {
+    diplay: block;
+  }
 `;

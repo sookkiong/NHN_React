@@ -44,7 +44,7 @@ const Header = () => {
               setLangOn(!langOn);
             }}
           >
-            <img src="/img/lang.png" />
+            <img src="/img/lang.png" alt="lang icon" />
             {langOn ? (
               <LangBox>
                 <LangList>한국어</LangList>
@@ -131,6 +131,12 @@ const Wrapper = styled.header`
   &#home {
     position: absolute;
     top: 0;
+  }
+  @media all and (max-width: 960px) {
+    padding: 35px 0;
+    &#home {
+      position: relative;
+    }
   }
 `;
 const HeaderInner = styled.div`

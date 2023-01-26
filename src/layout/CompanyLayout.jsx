@@ -2,12 +2,12 @@ import { Outlet } from "react-router";
 import Header from "../components/header";
 import { useNavigate, useLocation } from "react-router";
 import {
-  FContainer,
-  FLink,
   FLinkContainer,
   FList,
   FLogo,
   Footer,
+  FooterLeft,
+  FooterRight,
   Fsns,
   GoTop,
   IntroInner,
@@ -37,16 +37,17 @@ const CompanyLayout = () => {
 
       <IntroTop>
         <IntroInner>
-          <IntroSpan size="62px" fw="500" spacing="3px">
+          <IntroSpan>
             {location.pathname.includes("intro")
               ? tabMenu[0].name
               : tabMenu[1].name}
           </IntroSpan>
-          <IntroSpan size="16px" spacing="1px">
+          <IntroSpan id="explain" size="16px" spacing="1px">
             {location.pathname.includes("intro")
               ? tabMenu[0].des
               : tabMenu[1].des}
           </IntroSpan>
+
           <TabUl>
             <TabList
               id={TabChange("intro")}
@@ -73,38 +74,35 @@ const CompanyLayout = () => {
       <Outlet />
 
       <Footer>
-        <FContainer>
+        <FooterLeft>
           <FLogo>
-            <img src="/img/f_logo.png" />
+            <img src="/img/f_logo.png" alt="footer 로고" />
           </FLogo>
+
           <FLinkContainer>
-            <FList>
-              <FLink
-                onClick={() => {
-                  window.open("/privacy", "", "width=800 height=800");
-                }}
-              >
-                개인정보처리방침
-              </FLink>
+            <FList
+              onClick={() => {
+                window.open("/privacy", "", "width=800 height=800");
+              }}
+            >
+              개인정보처리방침
             </FList>
             <FList id="sepa">|</FList>
-            <FList>
-              <FLink
-                onClick={() => {
-                  window.open("/mails", "", "width=500,height=500");
-                }}
-              >
-                대표메일
-              </FLink>
+            <FList
+              onClick={() => {
+                window.open("/mails", "", "width=500,height=500");
+              }}
+            >
+              대표메일
             </FList>
           </FLinkContainer>
-        </FContainer>
+        </FooterLeft>
 
-        <FContainer>
+        <FooterRight>
           <Fsns bg="1" href="#"></Fsns>
           <Fsns bg="2" href="#"></Fsns>
           <Fsns bg="3" href="#"></Fsns>
-        </FContainer>
+        </FooterRight>
       </Footer>
     </>
   );

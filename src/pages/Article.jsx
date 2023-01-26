@@ -1,10 +1,10 @@
 import {
-  FContainer,
-  FLink,
   FLinkContainer,
   FList,
   FLogo,
   Footer,
+  FooterLeft,
+  FooterRight,
   Fsns,
   GoTop,
   IntroInner,
@@ -65,7 +65,7 @@ const Article = () => {
                   </div>
                 </div>
 
-                {v.id % 2 != 0 ? <ImgBox bg={v.id} /> : undefined}
+                {v.id % 2 !== 0 ? <ImgBox bg={v.id} /> : undefined}
               </Item>
             );
           })}
@@ -73,38 +73,35 @@ const Article = () => {
       </div>
 
       <Footer>
-        <FContainer>
+        <FooterLeft>
           <FLogo>
-            <img src="/img/f_logo.png" alt="로고" />
+            <img src="/img/f_logo.png" alt="footer 로고" />
           </FLogo>
+
           <FLinkContainer>
-            <FList>
-              <FLink
-                onClick={() => {
-                  window.open("/privacy", "", "width=800 height=800");
-                }}
-              >
-                개인정보처리방침
-              </FLink>
+            <FList
+              onClick={() => {
+                window.open("/privacy", "", "width=800 height=800");
+              }}
+            >
+              개인정보처리방침
             </FList>
             <FList id="sepa">|</FList>
-            <FList>
-              <FLink
-                onClick={() => {
-                  window.open("/mails", "", "width=500,height=500");
-                }}
-              >
-                대표메일
-              </FLink>
+            <FList
+              onClick={() => {
+                window.open("/mails", "", "width=500,height=500");
+              }}
+            >
+              대표메일
             </FList>
           </FLinkContainer>
-        </FContainer>
+        </FooterLeft>
 
-        <FContainer>
+        <FooterRight>
           <Fsns bg="1" href="#"></Fsns>
           <Fsns bg="2" href="#"></Fsns>
           <Fsns bg="3" href="#"></Fsns>
-        </FContainer>
+        </FooterRight>
       </Footer>
     </>
   );

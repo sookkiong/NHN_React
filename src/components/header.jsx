@@ -120,6 +120,7 @@ export default Header;
 const Wrapper = styled.header`
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
   padding: 60px 0;
   z-index: 1;
@@ -131,7 +132,13 @@ const Wrapper = styled.header`
     top: 0;
   }
   @media all and (max-width: 960px) {
-    padding: 40px 0 35px;
+    padding: 40px 0 30px;
+    &#home {
+      position: relative;
+    }
+  }
+  @media all and (max-width: 550px) {
+    padding: 30px 0;
     &#home {
       position: relative;
     }
@@ -306,7 +313,7 @@ const MainLogoMob = styled.div`
     cursor: pointer;
     width: 110px;
     height: 50px;
-    background: url("/img/mainlogo.png") no-repeat center top;
+    background: url("/img/mainlogo.png") no-repeat center center;
     background-size: contain;
   }
 `;
@@ -318,8 +325,8 @@ const MainNavMob = styled.div`
   @media all and (max-width: 550px) {
     display: block;
     width: 30px;
-    height: 30px;
-    background: url("/img/ham.png") no-repeat center top;
+    height: 50px;
+    background: url("/img/ham.png") no-repeat center center;
     background-size: contain;
     cursor: pointer;
   }

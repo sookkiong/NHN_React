@@ -1,8 +1,5 @@
 import { useState } from "react";
-import { Outlet } from "react-router";
-import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import Header from "../components/header";
 import HistoryContent from "../components/History";
 
 const IntroPage = () => {
@@ -16,66 +13,31 @@ const IntroPage = () => {
   return (
     <>
       <Para>
-        <div style={{ width: "36%" }}>
-          <p style={{ fontSize: "32px", fontWeight: "500" }}>
+        <Section1>
+          <Section1Title>
             NHN은 게임, 결제, 엔터테인먼트, IT, 광고 등 IT 기반의 다양한
             사업분야에 진출, 성장해 나가고 있는 글로벌 IT 기업입니다.
-          </p>
-          <p style={{ fontSize: "16px", lineHeight: "28px", color: "#7c7c7c" }}>
+          </Section1Title>
+          <Section1Content>
             2013년 8월 1일, 대한민국 최대 인터넷 기업인 NHN(주)에서 분할해
             'NHN엔터테인먼트'라는 사명으로 출범했으며, 사명을 NHN으로 다시
             바꾸며 한국 IT 기업의 상진인 'NHN'의 가치를 계승해 글로벌 IT기술
             기업으로 재도약하고 있습니다. 또한 클라우드/커머스/콘텐츠/페이먼트
             4대 핵심사업을 주축으로 2030년까지 글로벌 테크 컴퍼니로의 성장
             비전을 선포했습니다.
-          </p>
-        </div>
+          </Section1Content>
+        </Section1>
       </Para>
 
       <Para id="slogan">
-        <img
-          src="/img/bodybg.png"
-          style={{
-            position: "absolute",
-            top: "-190px",
-            left: "320px",
-            width: "650px",
-          }}
-        />
-        <div style={{ width: "60%" }}>
-          <span
-            style={{
-              display: "block",
-              marginBottom: "10px",
-              paddingRight: "15px",
-              color: "#7c7c7c",
-              width: "100%",
-              textAlign: "right",
-            }}
-          >
-            NHN이 제공하는 결제 서비스
-          </span>
-          <div
-            style={{
-              width: "100%",
-              height: "48vh",
-              background: `url("/img/sect2img.jpg") no-repeat center center`,
-              backgroundSize: "cover",
-              position: "relative",
-            }}
-          >
-            <span
-              style={{
-                display: "block",
-                position: "absolute",
-                left: "0",
-                bottom: "-30px",
-                color: "#7c7c7c",
-              }}
-            >
-              PAYCO
-            </span>
-          </div>
+        <Section2BG>
+          <img src="/img/bodybg.png" alt="슬로건 배경" width="100%" />
+        </Section2BG>
+        <Section2Wrapper>
+          <Section2ExpTop>NHN이 제공하는 결제 서비스</Section2ExpTop>
+          <Section2Image>
+            <Section2Expbottom>PAYCO</Section2Expbottom>
+          </Section2Image>
 
           <p
             style={{
@@ -92,7 +54,7 @@ const IntroPage = () => {
             </span>
             새로운 세상을 만들기 위해 도전합니다.
           </p>
-        </div>
+        </Section2Wrapper>
       </Para>
 
       <Para id="history">
@@ -171,6 +133,7 @@ const IntroPage = () => {
       <Para id="info">
         <WidthBox id="infoWidth">
           <SmallTitle>NHN 회사정보</SmallTitle>
+
           <InfoTable>
             <TableTr>
               <TableTh>대표이사</TableTh>
@@ -270,6 +233,13 @@ export const IntroTop = styled.div`
   height: 33vw;
   background: url("/img/introbg.png") no-repeat center bottom;
   background-size: cover;
+  @media all and (max-width: 960px) {
+    height: 34vw;
+  }
+  @media all and (max-width: 550px) {
+    height: 37vw;
+    background: #e72f2c;
+  }
 `;
 export const IntroInner = styled.div`
   display: flex;
@@ -278,14 +248,34 @@ export const IntroInner = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media all and (max-width: 550px) {
+    justify-content: flex-start;
+    padding-top: 10px;
+  }
 `;
 
 export const IntroSpan = styled.span`
   color: #fff;
-  font-size: ${(props) => props.size};
-  font-weight: ${(props) => props.fw};
-  letter-spacing: ${(props) => props.spacing};
-  margin-top: 0px;
+  font-size: 62px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  &#explain {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+  @media all and (max-width: 960px) {
+    font-size: 46px;
+  }
+  @media all and (max-width: 550px) {
+    font-size: 30px;
+    letter-spacing: 1px;
+    &#explain {
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+  }
 `;
 
 export const TabUl = styled.ul`
@@ -296,12 +286,14 @@ export const TabUl = styled.ul`
   text-align: center;
   display: flex;
   margin-top: 30px;
-  width: 16%;
   justify-content: space-between;
+  @media all and (max-width: 550px) {
+    margin-top: 10px;
+  }
 `;
 
 export const TabList = styled.li`
-  width: 45%;
+  width: 120px;
   padding: 10px;
   font-size: 14px;
   cursor: pointer;
@@ -314,6 +306,9 @@ export const TabList = styled.li`
   &:hover {
     text-decoration: underline;
     font-weight: 500;
+  }
+  @media all and (max-width: 550px) {
+    padding: 5px;
   }
 `;
 
@@ -347,6 +342,11 @@ const Para = styled.div`
     justify-content: flex-end;
     position: relative;
   }
+  @media all and (max-width: 550px) {
+    &#slogan {
+      margin-top: 120px;
+    }
+  }
   &#history {
     padding: 0 10%;
   }
@@ -355,7 +355,11 @@ const Para = styled.div`
     padding: 0 23%;
     margin-top: 100px;
   }
-
+  @media all and (max-width: 960px) {
+    &#ethics {
+      padding: 0 12%;
+    }
+  }
   &#info {
     padding: 0 12%;
     margin-top: 200px;
@@ -366,7 +370,78 @@ const Para = styled.div`
     flex-direction: column;
   }
 `;
-
+const Section1 = styled.div`
+  width: 38%;
+  @media all and (max-width: 960px) {
+    width: 70%;
+  }
+  @media all and (max-width: 550px) {
+    width: 90%;
+  }
+`;
+const Section1Title = styled.div`
+  font-size: 32px;
+  font-weight: 500;
+  text-align: justify;
+  @media all and (max-width: 960px) {
+    font-size: 28px;
+  }
+  @media all and (max-width: 550px) {
+    font-size: 24px;
+  }
+`;
+const Section1Content = styled.div`
+  font-size: 16px;
+  line-height: 28px;
+  color: #7c7c7c;
+  text-align: justify;
+  margin-top: 20px;
+`;
+const Section2BG = styled.div`
+  position: absolute;
+  top: -190px;
+  left: 18%;
+  width: 680px;
+  @media all and (max-width: 960px) {
+    left: 10%;
+  }
+  @media all and (max-width: 550px) {
+    width: 300px;
+    top: -100px;
+  }
+`;
+const Section2Wrapper = styled.div`
+  width: 60%;
+  @media all and (max-width: 960px) {
+    width: 75%;
+  }
+`;
+const Section2ExpTop = styled.span`
+  display: block;
+  margin-bottom: 10px;
+  padding-right: 15px;
+  color: #7c7c7c;
+  width: 100%;
+  text-align: right;
+  z-index: 10;
+`;
+const Section2Image = styled.div`
+  width: 100%;
+  height: 48vh;
+  background: url("/img/sect2img.jpg") no-repeat center center;
+  background-size: cover;
+  position: relative;
+  @media all and (max-width: 550px) {
+    height: 23vh;
+  }
+`;
+const Section2Expbottom = styled.span`
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -30px;
+  color: #7c7c7c;
+`;
 const WidthBox = styled.div`
   width: 100%;
   &#infoWidth {
@@ -433,6 +508,9 @@ const InfoTable = styled.table`
   width: 77%;
   border-top: 3px solid #e72f2c;
   border-collapse: collapse;
+  @media all and (max-width: 960px) {
+    width: 72%;
+  }
 `;
 
 const TableTr = styled.tr`
@@ -451,7 +529,7 @@ const TableTh = styled.th`
 const TableTd = styled.td`
   text-align: left;
   font-weight: 400;
-  width: 60%;
+  width: 80%;
   display: inline-block;
   color: #7c7c7c;
 `;
@@ -504,15 +582,19 @@ export const Footer = styled.footer`
   border-top: 1px solid #ccc;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  @media all and (max-width: 960px) {
+    margin-top: 100px;
+  }
 `;
 
-export const FContainer = styled.div`
+export const FooterLeft = styled.div`
   display: flex;
 `;
-export const FLogo = styled.div`
+export const FooterRight = styled.div`
   display: flex;
-  align-items: center;
 `;
+export const FLogo = styled.div``;
 
 export const FLinkContainer = styled.ul`
   list-style: none;
@@ -521,20 +603,25 @@ export const FLinkContainer = styled.ul`
   display: flex;
   margin-left: 100px;
   align-items: center;
+  @media all and (max-width: 960px) {
+    margin-left: 30px;
+  }
+  @media all and (max-width: 550px) {
+    display: none;
+  }
 `;
 
 export const FList = styled.li`
   margin-right: 20px;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 13px;
   &#sepa {
     color: #ccc;
     font-size: 13px;
   }
 `;
-export const FLink = styled.a`
-  color: #ccc;
-  text-decoration: none;
-  cursor: pointer;
-`;
+export const FLink = styled.a``;
 export const Fsns = styled.a`
   display: block;
   width: 22px;
@@ -542,4 +629,7 @@ export const Fsns = styled.a`
   margin-left: 50px;
   background: url("/img/fsns${(props) => props.bg}.png") no-repeat center center;
   background-size: contain;
+  @media all and (max-width: 960px) {
+    margin-left: 20px;
+  }
 `;

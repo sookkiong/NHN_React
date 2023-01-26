@@ -1,13 +1,13 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { CircleData, EthicData, FiveEthics } from "../components/company/menus";
+import { CircleData, EthicData } from "../components/company/menus";
 
 const Ethics = () => {
   let [circle, setCircle] = useState("");
   return (
     <Container>
       <ContentsBox>
-        <div>
+        <CircleWrap>
           <Title>NHN 임직원의 기본 윤리</Title>
           <CircleUL>
             {CircleData.map((value) => {
@@ -23,30 +23,28 @@ const Ethics = () => {
               );
             })}
           </CircleUL>
-        </div>
+        </CircleWrap>
 
-        <div style={{ marginTop: "150px" }}>
-          <EthicsUL>
-            {EthicData.map((value) => {
-              return (
-                <EthicsRow>
-                  <RowTitle>{value.title}</RowTitle>
+        <EthicsUL>
+          {EthicData.map((value) => {
+            return (
+              <EthicsRow>
+                <RowTitle>{value.title}</RowTitle>
 
-                  <RowBox>
-                    <Box bg={value.background_1}>
-                      <SubTitle>{value.subTitle1}</SubTitle>
-                      <SubContent>{value.subContent1}</SubContent>
-                    </Box>
-                    <Box bg={value.background_2}>
-                      <SubTitle>{value.subTitle2}</SubTitle>
-                      <SubContent>{value.subContent2}</SubContent>
-                    </Box>
-                  </RowBox>
-                </EthicsRow>
-              );
-            })}
-          </EthicsUL>
-        </div>
+                <RowBox>
+                  <Box bg={value.background_1}>
+                    <SubTitle>{value.subTitle1}</SubTitle>
+                    <SubContent>{value.subContent1}</SubContent>
+                  </Box>
+                  <Box bg={value.background_2}>
+                    <SubTitle>{value.subTitle2}</SubTitle>
+                    <SubContent>{value.subContent2}</SubContent>
+                  </Box>
+                </RowBox>
+              </EthicsRow>
+            );
+          })}
+        </EthicsUL>
       </ContentsBox>
     </Container>
   );
@@ -59,13 +57,21 @@ const Container = styled.div`
   width: 100%;
   justify-content: center;
   margin-top: 100px;
+  @media all and (max-width: 960px) {
+    margin-top: 0;
+  }
 `;
 const ContentsBox = styled.div`
   width: 76%;
   display: flex;
   flex-direction: column;
 `;
-
+const CircleWrap = styled.div`
+  display: block;
+  @media all and (max-width: 960px) {
+    display: none;
+  }
+`;
 const Title = styled.div`
   font-size: 22px;
   font-weight: 600;
@@ -81,8 +87,8 @@ const CircleUL = styled.ul`
 `;
 const CircleList = styled.li`
   border-radius: 50%;
-  width: 210px;
-  height: 210px;
+  width: 160px;
+  height: 160px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,12 +101,21 @@ const CircleList = styled.li`
     background: #e72f2c;
     color: #fff;
   }
+  @media all and (max-width: 960px) {
+    width: 110px;
+    height: 110px;
+    font-size: 16px;
+  }
 `;
 
 const EthicsUL = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
+  margin-top: 150px;
+  @media all and (max-width: 960px) {
+    margin-top: 80px;
+  }
 `;
 
 const SubTitle = styled.span`
@@ -118,12 +133,19 @@ const EthicsRow = styled.li`
   justify-content: space-between;
   margin-bottom: 80px;
   width: 100%;
+  @media all and (max-width: 960px) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 `;
 
 const RowTitle = styled.div`
   font-size: 18px;
   font-weight: 600;
   width: 30%;
+  @media all and (max-width: 960px) {
+    width: 100%;
+  }
 `;
 
 const RowBox = styled.div`
@@ -131,10 +153,18 @@ const RowBox = styled.div`
   width: 70%;
   height: 200px;
   justify-content: space-between;
+  @media all and (max-width: 960px) {
+    margin-top: 20px;
+    width: 100%;
+  }
 `;
 
 const Box = styled.div`
   width: 40%;
   border-bottom: 1px solid #ccc;
-  background: url("/img/bl_${(props) => props.bg}.png") no-repeat right 80%;
+  background: url("/img/bl_${(props) => props.bg}.png") no-repeat right 85%;
+  background-size: 40px auto;
+  @media all and (max-width: 960px) {
+    width: 40%;
+  }
 `;

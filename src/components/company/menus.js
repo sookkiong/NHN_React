@@ -21,7 +21,9 @@ export const CircleData = [
     title: "고객",
     content: (
       <span>
-        경영활동에서 최우선의
+        경영활동에서
+        <br />
+        최우선의
         <br />
         판단기준
       </span>
@@ -54,7 +56,13 @@ export const CircleData = [
   },
   {
     title: "임직원",
-    content: "최고의 서비스 창출의 주체",
+    content: (
+      <span>
+        최고의 서비스
+        <br />
+        창출의 주체
+      </span>
+    ),
   },
 ];
 

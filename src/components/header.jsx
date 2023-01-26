@@ -60,30 +60,28 @@ const Header = () => {
               setSideOn(!sideOn);
             }}
           >
-            <img src="/img/side.png" />
+            <img src="/img/side.png" alt="sidemenu" />
             {sideOn ? <SideBox /> : null}
           </SideButton>
         </LangNNews>
 
         {/* 태블릿: 960px */}
-        <MainNav_tab onClick={() => setMenuOn(true)} />
-        <MainLogo_tab onClick={() => navigate("/")} />
-        <Lang_tab>
-          <SideButton_m
-            id="lang"
-            onClick={(e) => {
-              e.stopPropagation();
-              setLangOn(!langOn);
-            }}
-          >
-            {langOn ? (
-              <LangBox>
-                <LangList>한국어</LangList>
-                <LangList>ENG</LangList>
-              </LangBox>
-            ) : null}
-          </SideButton_m>
-        </Lang_tab>
+        <MainNavTab onClick={() => setMenuOn(true)} />
+        <MainLogoTab onClick={() => navigate("/")} />
+        <LangButtonTab
+          id="lang"
+          onClick={(e) => {
+            e.stopPropagation();
+            setLangOn(!langOn);
+          }}
+        >
+          {langOn ? (
+            <SelectLangTab>
+              <SelectLangListTab>한국어</SelectLangListTab>
+              <SelectLangListTab>English</SelectLangListTab>
+            </SelectLangTab>
+          ) : null}
+        </LangButtonTab>
 
         {menuOn ? (
           <TabNMobMenu>
@@ -110,8 +108,8 @@ const Header = () => {
         ) : undefined}
 
         {/* 모바일: 550px */}
-        <MainLogo_mob onClick={() => navigate("/")} />
-        <MainNav_mob onClick={() => setMenuOn(true)} />
+        <MainLogoMob onClick={() => navigate("/")} />
+        <MainNavMob onClick={() => setMenuOn(true)} />
       </HeaderInner>
     </Wrapper>
   );
@@ -133,7 +131,7 @@ const Wrapper = styled.header`
     top: 0;
   }
   @media all and (max-width: 960px) {
-    padding: 35px 0;
+    padding: 40px 0 35px;
     &#home {
       position: relative;
     }
@@ -187,6 +185,9 @@ const LangBox = styled.ul`
   bottom: -85px;
   right: -25px;
   background-color: rgba(255, 255, 255, 0.5);
+  @media all and (max-width: 960px) {
+    display: none;
+  }
 `;
 
 const LangList = styled.li`
@@ -222,7 +223,7 @@ const MenuList = styled.li`
 `;
 
 // 반응형(태블릿:960px / 모바일:550px)
-const MainNav_tab = styled.div`
+const MainNavTab = styled.div`
   display: none;
   width: 30px;
   height: 30px;
@@ -236,9 +237,9 @@ const MainNav_tab = styled.div`
     display: none;
   }
 `;
-const MainLogo_tab = styled.div`
+const MainLogoTab = styled.div`
   display: none;
-  width: 20%;
+  width: 108px;
   height: 30px;
   background: url("/img/mainlogo.png") no-repeat center center;
   background-size: contain;
@@ -249,29 +250,53 @@ const MainLogo_tab = styled.div`
     display: none;
   }
 `;
-const Lang_tab = styled.div`
+const LangTab = styled.div`
   display: none;
   @media all and (max-width: 960px) {
     display: block;
-    width: 5%;
+    width: 28px;
+    height: 28px;
     padding-top: 5px;
   }
   @media all and (max-width: 550px) {
     display: none;
   }
 `;
-const SideButton_m = styled.button`
-  border: none;
-  width: 100%;
-  height: 100%;
-  background: url("/img/lang.png") no-repeat right center;
-  background-size: contain;
-  &#lang {
-    position: relative;
+const LangButtonTab = styled.button`
+  display: none;
+
+  @media all and (max-width: 960px) {
+    display: block;
+    border: none;
+    width: 28px;
+    height: 28px;
+    background: url("/img/lang.png") no-repeat right center;
+    background-size: contain;
+    cursor: pointer;
+    margin-top: 3px;
+    &#lang {
+      position: relative;
+    }
   }
+  @media all and (max-width: 550px) {
+    display: none;
+  }
+`;
+const SelectLangTab = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: fit-content;
+  position: absolute;
+  top: 38px;
+  left: -17px;
+  background: rgba(255, 255, 255, 0.5);
+`;
+const SelectLangListTab = styled.li`
+  padding: 5px 10px;
   cursor: pointer;
 `;
-const MainLogo_mob = styled.div`
+const MainLogoMob = styled.div`
   display: none;
   @media all and (max-width: 960px) {
     display: none;
@@ -279,13 +304,13 @@ const MainLogo_mob = styled.div`
   @media all and (max-width: 550px) {
     display: block;
     cursor: pointer;
-    width: 120px;
+    width: 110px;
     height: 50px;
     background: url("/img/mainlogo.png") no-repeat center top;
     background-size: contain;
   }
 `;
-const MainNav_mob = styled.div`
+const MainNavMob = styled.div`
   display: none;
   @media all and (max-width: 960px) {
     display: none;

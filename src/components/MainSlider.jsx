@@ -44,6 +44,7 @@ const Sliders = () => {
                 {v.text.split("\n").map((v) => {
                   return <Explain>{v}</Explain>;
                 })}
+                <Link>{v.link}</Link>
               </TextBox>
 
               <SlideBg id={up} bg={v.id}></SlideBg>
@@ -59,19 +60,24 @@ export default Sliders;
 
 const Wrapper = styled.div`
   width: 65%;
-  height: 35rem;
-  margin-top: 5%;
+  height: 31rem;
+  margin-top: 7%;
   cursor: pointer;
+  display: block;
   @media all and (max-width: 960px) {
     width: 80%;
-    height: 30rem;
+    height: 23rem;
+    margin-top: 0;
+  }
+  @media all and (max-width: 550px) {
+    display: none;
   }
 `;
 
 const TextBox = styled.div`
   position: absolute;
   left: 0;
-  top: 10%;
+  top: 5%;
   color: #fff;
   z-index: 5;
 `;
@@ -79,15 +85,34 @@ const Title = styled.div`
   font-size: 4.5rem;
   font-weight: 900;
   line-height: 1.2;
+  @media all and (max-width: 960px) {
+    font-size: 3.2rem;
+  }
 `;
 const Banner = styled.div`
   width: 60%;
   margin: 15px 0 30px 1px;
+  @media all and (max-width: 960px) {
+    display: none;
+  }
 `;
 const Explain = styled.div`
   font-size: 1.3rem;
   @media all and (max-width: 960px) {
-    display: none;
+    font-size: 1rem;
+  }
+`;
+const Link = styled.div`
+  display: none;
+  @media all and (max-width: 960px) {
+    display: block;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #e72f2c;
+    background: #fff;
+    width: fit-content;
+    font-weight: 500;
+    padding: 0 10px;
   }
 `;
 const SlideBg = styled.div`
@@ -97,9 +122,8 @@ const SlideBg = styled.div`
   height: 100%;
   position: absolute;
   right: 0;
-  bottom: -100%;
+  bottom: 0%;
   z-index: 1;
-  border: 1px solid blue;
   transition: all 1s;
   &#up {
     bottom: 0;
@@ -111,6 +135,7 @@ const MainSlideStyle = styled(Slider)`
     height: 32rem;
 
     @media all and (max-width: 960px) {
+      height: 25rem;
     }
   }
   .slick-dots {
@@ -126,7 +151,7 @@ const MainSlideStyle = styled(Slider)`
     text-align: center;
     @media all and (max-width: 960px) {
       left: 0;
-      top: 87%;
+      top: 85%;
     }
   }
   .slick-dots li {

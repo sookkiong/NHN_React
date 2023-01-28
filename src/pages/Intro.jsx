@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import HistoryContent from "../components/History";
+import { HistoryData } from "../components/company/menus";
 
 const IntroPage = () => {
   let [hover, setHover] = useState("ai");
@@ -11,7 +12,7 @@ const IntroPage = () => {
   };
 
   return (
-    <>
+    <div style={{ overflowX: "hidden" }}>
       <Para>
         <Section1>
           <Section1Title>
@@ -39,21 +40,12 @@ const IntroPage = () => {
             <Section2Expbottom>PAYCO</Section2Expbottom>
           </Section2Image>
 
-          <p
-            style={{
-              fontSize: "28px",
-              fontWeight: "500",
-              width: "100%",
-              textAlign: "right",
-              marginTop: "60px",
-              paddingRight: "50px",
-            }}
-          >
+          <Section2Slogan>
             <span style={{ color: "#e72f2c", display: "block" }}>
               Toward Art, Science &amp; Tech
             </span>
             새로운 세상을 만들기 위해 도전합니다.
-          </p>
+          </Section2Slogan>
         </Section2Wrapper>
       </Para>
 
@@ -61,7 +53,7 @@ const IntroPage = () => {
         <WidthBox>
           <Title>Corporate History</Title>
 
-          <div>
+          <HistoryWrap>
             <HistoryContent
               id="left"
               year="2013"
@@ -98,7 +90,30 @@ const IntroPage = () => {
               sub1="2018 연간매출 1조원 돌파"
               sub2="NHN(주)로 사명변경"
             />
-          </div>
+          </HistoryWrap>
+
+          <HistoryWrapMob>
+            {HistoryData.map((v) => {
+              return (
+                <div style={{ marginBottom: "40px" }}>
+                  <div style={{ fontWeight: "500", fontSize: "18px" }}>
+                    {v.year}
+                  </div>
+                  <HistoryImgMob bg={v.id}></HistoryImgMob>
+                  <table>
+                    <tr>
+                      <th>{v.month1}</th>
+                      <HistoryTdMob>{v.content1}</HistoryTdMob>
+                    </tr>
+                    <tr>
+                      <th>{v.month2}</th>
+                      <HistoryTdMob>{v.content2}</HistoryTdMob>
+                    </tr>
+                  </table>
+                </div>
+              );
+            })}
+          </HistoryWrapMob>
         </WidthBox>
       </Para>
 
@@ -125,14 +140,18 @@ const IntroPage = () => {
               </EthicList>
             </Ethics>
 
-            <EthicImg></EthicImg>
+            <EthicImg />
           </EthicsContainer>
         </WidthBox>
       </Para>
 
       <Para id="info">
         <WidthBox id="infoWidth">
-          <SmallTitle>NHN 회사정보</SmallTitle>
+          <SmallTitle>
+            NHN
+            <br />
+            회사정보
+          </SmallTitle>
 
           <InfoTable>
             <TableTr>
@@ -222,7 +241,7 @@ const IntroPage = () => {
           </DownloadUl>
         </DownloadBox>
       </Para>
-    </>
+    </div>
   );
 };
 
@@ -415,6 +434,9 @@ const Section2Wrapper = styled.div`
   @media all and (max-width: 960px) {
     width: 75%;
   }
+  @media all and (max-width: 550px) {
+    width: 80%;
+  }
 `;
 const Section2ExpTop = styled.span`
   display: block;
@@ -442,6 +464,18 @@ const Section2Expbottom = styled.span`
   bottom: -30px;
   color: #7c7c7c;
 `;
+const Section2Slogan = styled.div`
+  font-size: 28px;
+  font-weight: 500;
+  width: 100%;
+  text-align: right;
+  margin-top: 60px;
+  padding-right: 50px;
+  @media all and (max-width: 550px) {
+    font-size: 22px;
+    padding-right: 30px;
+  }
+`;
 const WidthBox = styled.div`
   width: 100%;
   &#infoWidth {
@@ -451,6 +485,13 @@ const WidthBox = styled.div`
   }
   &#footerWidth {
     display: flex;
+  }
+  @media all and (max-width: 960px) {
+    width: 90%;
+    margin: 0 auto;
+  }
+  @media all and (max-width: 550px) {
+    width: 100%;
   }
 `;
 
@@ -462,14 +503,38 @@ const Title = styled.span`
   padding-bottom: 35px;
   display: block;
 `;
-
-const EthicList = styled.li`
-  width: 100%;
-  height: 22%;
-  padding-left: 22%;
-  background: url("/img/eth${(props) => props.bg}.png") no-repeat left top;
-  background-size: 15% auto;
+const HistoryWrap = styled.div`
+  display: block;
+  @media all and (max-width: 960px) {
+    display: none;
+  }
 `;
+const HistoryWrapMob = styled.div`
+  display: none;
+  @media all and (max-width: 960px) {
+    display: block;
+  }
+`;
+const HistoryImgMob = styled.div`
+  display: none;
+  @media all and (max-width: 960px) {
+    display: block;
+    width: 100%;
+    height: 300px;
+    background: url("/img/history${(props) => props.bg}.jpg") no-repeat center
+      center;
+    background-size: cover;
+    margin: 15px 0;
+  }
+  @media all and (max-width: 550px) {
+    height: 200px;
+  }
+`;
+const HistoryTdMob = styled.td`
+  color: #7c7c7c;
+  padding-left: 10px;
+`;
+
 const EthicTitle = styled.span`
   display: block;
   padding-bottom: 10px;
@@ -478,11 +543,16 @@ const EthicTitle = styled.span`
 `;
 
 const EthicImg = styled.div`
-  width: 36%;
-  height: 100%;
+  width: 40%;
+  height: 30rem;
   background: url("/img/ethic.jpg") no-repeat;
   background-size: cover;
   background-position: 75% bottom;
+  display: block;
+
+  @media all and (max-width: 550px) {
+    display: none;
+  }
 `;
 
 const Ethics = styled.ul`
@@ -494,14 +564,24 @@ const Ethics = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 20px;
+  @media all and (max-width: 550px) {
+    width: 100%;
+  }
 `;
-
+const EthicList = styled.li`
+  width: 100%;
+  background: url("/img/eth${(props) => props.bg}.png") no-repeat left center;
+  background-size: 15% auto;
+  margin-bottom: 20px;
+  padding: 20px 0 20px 22%;
+  box-sizing: border-box;
+`;
 const EthicsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 55vh;
 `;
 
 const InfoTable = styled.table`
@@ -525,6 +605,9 @@ const TableTh = styled.th`
   font-weight: 500;
   width: 20%;
   display: inline-block;
+  @media all and (max-width: 960px) {
+    width: 30%;
+  }
 `;
 const TableTd = styled.td`
   text-align: left;
@@ -532,10 +615,13 @@ const TableTd = styled.td`
   width: 80%;
   display: inline-block;
   color: #7c7c7c;
+  @media all and (max-width: 960px) {
+    width: 70%;
+  }
 `;
 
 const SmallTitle = styled.div`
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
 `;
 
@@ -553,22 +639,34 @@ const DownloadUl = styled.ul`
   list-style: none;
   display: flex;
   width: 77%;
+  @media all and (max-width: 550px) {
+    width: 73%;
+    margin-left: 10px;
+  }
 `;
 
 const DownList = styled.li`
   width: 260px;
   margin-right: 80px;
+  @media all and (max-width: 960px) {
+    margin-right: 30px;
+  }
+  @media all and (max-width: 550px) {
+    width: 120px;
+    height: 50px;
+    margin-right: 30px;
+  }
 `;
 const DownLink = styled.a`
   display: block;
   width: 100%;
   height: 100%;
   text-align: center;
-  line-height: 55px;
+  line-height: 50px;
   text-decoration: none;
   color: #000;
   border: 1px solid #ccc;
-
+  font-size: 14px;
   &#isHover {
     background: #e72f2c;
     color: #fff;

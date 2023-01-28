@@ -16,6 +16,41 @@ export const tabMenu = [
   },
 ];
 
+export const HistoryData = [
+  {
+    id: 1,
+    year: "2013",
+    month1: "AUG",
+    content1: "NHN(주)에서 NHN엔터테인먼트(주)로 인적 분할",
+    month2: "OCT",
+    content2: "웹툰 서비스 코미코(Comico) 출시",
+  },
+  {
+    id: 2,
+    year: "2014",
+    month1: "FEB",
+    content1: "	게임 개발 전문 자회사 설립(NHN 픽셀큐브(주))",
+    month2: "DEC",
+    content2: "NHN CLOUD 출시",
+  },
+  {
+    id: 3,
+    year: "2017",
+    month1: "APR",
+    content1: "NHN페이코(주) 설립",
+    month2: "JUL",
+    content2: "디지털 전문 광고기업 (주)NHN ACE 설립",
+  },
+  {
+    id: 4,
+    year: "2019",
+    month1: "FEB",
+    content1: "2018 연간매출 1조원 돌파",
+    month2: "APR",
+    content2: "NHN(주)로 사명 변경",
+  },
+];
+
 export const CircleData = [
   {
     title: "고객",

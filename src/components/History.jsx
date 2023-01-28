@@ -5,7 +5,7 @@ const HistoryContent = ({ id, year, img, month1, month2, sub1, sub2 }) => {
     <HistoryContainer id={id}>
       <Year>{year}</Year>
       <HistoryBox>
-        <img src={`/img/${img}.jpg`} />
+        <img src={`/img/${img}.jpg`} alt="history 이미지" />
         <YearTable>
           <tr>
             <YearTh>{month1}</YearTh>
@@ -22,7 +22,7 @@ const HistoryContent = ({ id, year, img, month1, month2, sub1, sub2 }) => {
   ) : (
     <HistoryContainer id={id}>
       <HistoryBox id={id}>
-        <img src={`/img/${img}.jpg`} />
+        <img src={`/img/${img}.jpg`} alt="history 이미지" />
         <YearTable>
           <tr>
             <YearTh id={id}>{sub1}</YearTh>

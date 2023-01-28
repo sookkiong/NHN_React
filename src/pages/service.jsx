@@ -1,11 +1,16 @@
 import styled from "styled-components";
-import { serviceList } from "../components/service/service";
+import { serviceList, ServiceListMob } from "../components/service/service";
 import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
 
 const Service = () => {
   const [up, setUp] = useState("");
   const upRef = useInView();
+
+  const isOdd = (v) => {
+    const id = v % 2 === 0 ? "border" : undefined;
+    return id;
+  };
 
   useEffect(() => {
     setUp("up");
@@ -36,7 +41,7 @@ const Service = () => {
                 {row.map((value) => {
                   return (
                     <Tag
-                      id={value.id === "#" ? "샵" : value.id}
+                      id={value.type === "category" ? "category" : "content"}
                       onClick={
                         value.url
                           ? () => {
@@ -53,12 +58,22 @@ const Service = () => {
             );
           })}
         </TagContainer>
+
+        <TagContainerMob>
+          {ServiceListMob.map((v, i) => {
+            return (
+              <TagMob id={isOdd(i + 1)} onClick={() => window.open(v.url)}>
+                {v.name}
+              </TagMob>
+            );
+          })}
+        </TagContainerMob>
       </Container>
 
       <Footer>
         <FContainer>
           <FLogo>
-            <img src="/img/logo.png" />
+            <img src="/img/logo.png" alt="footer 로고" width="100%" />
           </FLogo>
           <FLinkContainer>
             <FList>
@@ -110,6 +125,9 @@ export default Service;
 const Container = styled.div`
   background-color: #e72f2c;
   padding: 0 10% 160px;
+  @media all and (max-width: 550px) {
+    padding-bottom: 100px;
+  }
 `;
 
 const TitleSpan = styled.span`
@@ -124,12 +142,47 @@ const TitleSpan = styled.span`
     letter-spacing: 1.8px;
     padding-top: 5px;
   }
+  @media all and (max-width: 960px) {
+    &#title {
+      font-size: 45px;
+    }
+  }
 `;
 
 const TagContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 90px;
+  @media all and (max-width: 550px) {
+    display: none;
+  }
+`;
+const TagContainerMob = styled.div`
+  display: none;
+  @media all and (max-width: 550px) {
+    display: grid;
+    grid-template-columns: 48% 48%;
+    margin-top: 30px;
+    justify-content: space-between;
+  }
+`;
+const TagMob = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  background: #fff;
+  padding: 7px 0;
+  border-radius: 30px;
+  color: #e72f2c;
+  font-size: 24px;
+  font-weight: 500;
+  cursor: pointer;
+  &#border {
+    background: none;
+    border: 2px solid #fff;
+    color: #fff;
+  }
 `;
 
 const TagRow = styled.div`
@@ -152,27 +205,41 @@ const Tag = styled.div`
   font-weight: 500;
   color: #fff;
   border-radius: 50px;
-  padding: 5px 40px;
   cursor: pointer;
   &:hover {
     background: #fff;
     color: #e72f2c;
   }
-  &#아이엠스쿨,
-  &#기타 {
-    margin-right: 50px;
-  }
-  &#샵,
-  &#게임,
-  &#결제,
-  &#컨텐츠,
-  &#커머스,
-  &#IT,
-  &#에듀테크,
-  &#기타 {
+  &#category {
     background-color: #fff;
     color: #e72f2c;
     cursor: default;
+  }
+  &#content {
+    transition: bottom 0.5s;
+    position: relative;
+    bottom: 0;
+    &:hover {
+      box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.5);
+      bottom: 20px;
+    }
+  }
+  padding: 0.3rem 3rem;
+  @media all and (max-width: 1510px) {
+    padding: 0.3rem 2rem;
+  }
+  @media all and (max-width: 1370px) {
+    padding: 0.3rem 1rem;
+    font-size: 45px;
+  }
+  @media all and (max-width: 960px) {
+    padding: 0.3rem 1rem;
+    font-size: 2rem;
+    border: 3px solid #fff;
+  }
+  @media all and (max-width: 724px) {
+    font-size: 1.3rem;
+    border: 2px solid #fff;
   }
 `;
 
@@ -186,10 +253,14 @@ export const Footer = styled.footer`
 
 export const FContainer = styled.div`
   display: flex;
+  align-items: center;
 `;
 export const FLogo = styled.div`
   display: flex;
   align-items: center;
+  @media all and (max-width: 960px) {
+    width: 50px;
+  }
 `;
 
 export const FLinkContainer = styled.ul`
@@ -199,6 +270,12 @@ export const FLinkContainer = styled.ul`
   display: flex;
   margin-left: 100px;
   align-items: center;
+  @media all and (max-width: 960px) {
+    margin-left: 30px;
+  }
+  @media all and (max-width: 550px) {
+    display: none;
+  }
 `;
 
 export const FList = styled.li`
@@ -207,11 +284,18 @@ export const FList = styled.li`
     color: #ccc;
     font-size: 13px;
   }
+  @media all and (max-width: 960px) {
+    margin-right: 15px;
+    font-size: 14px;
+  }
 `;
 export const FLink = styled.a`
   color: #fff;
   text-decoration: none;
   cursor: pointer;
+  @media all and (max-width: 960px) {
+    font-size: 14px;
+  }
 `;
 export const Fsns = styled.a`
   display: block;
@@ -221,4 +305,9 @@ export const Fsns = styled.a`
   background: url("/img/fsns${(props) => props.bg}_w.png") no-repeat center
     center;
   background-size: contain;
+  @media all and (max-width: 960px) {
+    margin-left: 20px;
+    width: 18px;
+    height: 18px;
+  }
 `;

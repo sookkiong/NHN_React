@@ -11,7 +11,7 @@ const MainPage = () => {
       {/* 데스크탑 */}
       <Sliders />
 
-      {/* 태블릿 */}
+      {/* 모바일 */}
       <MobileWrap>
         <MainItemsMobile>
           {sliderItem.map((v) => {
@@ -84,11 +84,13 @@ const MainStyle = styled.div`
   overflow-y: hidden;
   overflow-x: hidden;
   @media all and (max-width: 960px) {
-    height: 90vh;
+    height: 30rem;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    overflow-y: scroll;
+  }
+  @media all and (max-width: 550px) {
+    height: 68rem;
   }
 `;
 

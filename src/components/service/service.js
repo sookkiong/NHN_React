@@ -2,47 +2,109 @@ import styled from "styled-components";
 
 export const serviceList = [
   [
-    { id: "#" },
-    { id: "게임" },
+    { id: "#", type: "category" },
+    { id: "게임", type: "category" },
     {
       id: "프렌즈팝",
       url: "https://play.google.com/store/apps/details?id=com.nhnpixelcube.friendspop&hl=ko&gl=US",
+      type: "content",
     },
-    { id: "한게임", url: "https://www.hangame.com/" },
+    { id: "한게임", url: "https://www.hangame.com/", type: "content" },
     {
       id: "건즈업!",
       url: "https://play.google.com/store/apps/details?id=com.nhn.gunsup&hl=ko&gl=US",
+      type: "content",
     },
   ],
   [
-    { id: "결제" },
-    { id: "페이코", url: "https://www.payco.com/" },
-    { id: "NHN KCP", url: "https://www.kcp.co.kr/main.do" },
-    { id: "컨텐츠" },
+    { id: "결제", type: "category" },
+    { id: "페이코", url: "https://www.payco.com/", type: "content" },
+    { id: "NHN KCP", url: "https://www.kcp.co.kr/main.do", type: "content" },
+    { id: "컨텐츠", type: "category" },
   ],
   [
-    { id: "코미코", url: "https://www.comico.kr/" },
-    { id: "티켓링크", url: "http://www.ticketlink.co.kr/home" },
-    { id: "벅스", url: "https://music.bugs.co.kr/" },
-    { id: "커머스" },
+    { id: "코미코", url: "https://www.comico.kr/", type: "content" },
+    {
+      id: "티켓링크",
+      url: "http://www.ticketlink.co.kr/home",
+      type: "content",
+    },
+    { id: "벅스", url: "https://music.bugs.co.kr/", type: "content" },
+    { id: "커머스", type: "category" },
   ],
   [
-    { id: "샵바이", url: "https://www.nhn-commerce.com/" },
-    { id: "IT" },
-    { id: "NHN클라우드", url: "https://www.toast.com/kr" },
-    { id: "에듀테크" },
+    { id: "샵바이", url: "https://www.nhn-commerce.com/", type: "content" },
+    { id: "IT", type: "category" },
+    { id: "NHN클라우드", url: "https://www.toast.com/kr", type: "content" },
+    { id: "에듀테크", type: "category" },
   ],
   [
-    { id: "아이엠스쿨", url: "https://school.iamservice.net/" },
+    {
+      id: "아이엠스쿨",
+      url: "https://school.iamservice.net/",
+      type: "content",
+    },
     {
       id: "기타",
-      url: "https://play.google.com/store/apps/details?id=com.dnt7.threeW&hl=ko&gl=US",
+      type: "category",
     },
     {
       id: "핑크다이어리",
       url: "https://play.google.com/store/apps/details?id=com.dnt7.threeW&hl=ko&gl=US",
+      type: "content",
     },
   ],
+];
+
+export const ServiceListMob = [
+  {
+    name: "프렌즈팝",
+    url: "https://play.google.com/store/apps/details?id=com.nhnpixelcube.friendspop&hl=ko&gl=US",
+  },
+  {
+    name: "한게임",
+    url: "https://www.hangame.com/",
+  },
+  {
+    name: "건즈업!",
+    url: "https://play.google.com/store/apps/details?id=com.nhn.gunsup&hl=ko&gl=US",
+  },
+  {
+    name: "PAYCO",
+    url: "https://www.payco.com/",
+  },
+  {
+    name: "NHN KCP",
+    url: "https://www.kcp.co.kr/main.do",
+  },
+  {
+    name: "코미코",
+    url: "https://www.comico.kr/",
+  },
+  {
+    name: "티켓링크",
+    url: "http://www.ticketlink.co.kr/home",
+  },
+  {
+    name: "벅스",
+    url: "https://music.bugs.co.kr/",
+  },
+  {
+    name: "샵바이",
+    url: "https://www.nhn-commerce.com/",
+  },
+  {
+    name: "NHN클라우드",
+    url: "https://www.toast.com/kr",
+  },
+  {
+    name: "아이엠스쿨",
+    url: "https://school.iamservice.net/",
+  },
+  {
+    name: "핑크다이어리",
+    url: "https://play.google.com/store/apps/details?id=com.dnt7.threeW&hl=ko&gl=US",
+  },
 ];
 
 export const Mails = () => {

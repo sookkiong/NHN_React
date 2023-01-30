@@ -25,7 +25,7 @@ const Article = () => {
           <IntroSpan size="62px" fw="500" spacing="3px">
             보도자료
           </IntroSpan>
-          <IntroSpan size="16px" spacing="1px">
+          <IntroSpan id="explain" size="16px" spacing="1px">
             NHN의 다양한 소식을 만나보세요.
           </IntroSpan>
         </IntroInner>
@@ -33,7 +33,7 @@ const Article = () => {
 
       <GoTop onClick={() => window.scrollTo(0, 0)}>↑</GoTop>
 
-      <div style={{ margin: "100px 18% 50px" }}>
+      <ContentsWrap>
         <CountingBox>
           전체{" "}
           <span style={{ color: "#e72f2c", fontWeight: "600" }}>
@@ -46,36 +46,33 @@ const Article = () => {
           {articles.map((v) => {
             return (
               <Item onClick={() => navigate(`/article/detail?id=${v.id}`)}>
-                <div>
-                  <div id="title" style={{ fontWeight: "500" }}>
-                    {v.title}
-                  </div>
-                  <div
-                    style={{
-                      margin: "20px 0 45px",
-                      color: "#7c7c7c",
-                      fontSize: "15px",
-                      textAlign: "justify",
-                    }}
-                  >
-                    {v.list}
-                  </div>
-                  <div style={{ fontSize: "14px", color: "#7c7c7c" }}>
-                    {v.date}
-                  </div>
+                <div
+                  style={{ display: "flex", justifyContent: "space-between" }}
+                >
+                  <ArticleTexts>
+                    <div id="title" style={{ fontWeight: "500" }}>
+                      {v.title}
+                    </div>
+
+                    <ArticleContent>{v.list}</ArticleContent>
+                  </ArticleTexts>
+
+                  {v.id % 2 !== 0 ? <ImgBox bg={v.id} /> : undefined}
                 </div>
 
-                {v.id % 2 !== 0 ? <ImgBox bg={v.id} /> : undefined}
+                <Date style={{ fontSize: "14px", color: "#7c7c7c" }}>
+                  {v.date}
+                </Date>
               </Item>
             );
           })}
         </div>
-      </div>
+      </ContentsWrap>
 
       <Footer>
         <FooterLeft>
           <FLogo>
-            <img src="/img/f_logo.png" alt="footer 로고" />
+            <img src="/img/f_logo.png" alt="footer 로고" width="100%" />
           </FLogo>
 
           <FLinkContainer>
@@ -109,6 +106,12 @@ const Article = () => {
 
 export default Article;
 
+const ContentsWrap = styled.div`
+  margin: 100px 18% 50px;
+  @media all and (max-width: 960px) {
+    margin: 100px 10% 50px;
+  }
+`;
 const CountingBox = styled.div`
   width: 100%;
   font-weight: 500;
@@ -117,23 +120,49 @@ const CountingBox = styled.div`
 `;
 
 const ImgBox = styled.div`
-  width: 35rem;
+  width: 30rem;
   height: 10rem;
   background: url("/img/article_photo${(props) => props.bg}.png") no-repeat
     center center;
   background-size: cover;
   margin-left: 20px;
+  margin-top: 6px;
+  @media all and (max-width: 550px) {
+    display: none;
+  }
 `;
 const Item = styled.div`
-  display: flex;
-  align-content: center;
   padding: 30px 0;
   border-bottom: 1px solid #ccc;
   cursor: pointer;
-
   &:hover {
     #title {
       text-decoration: underline;
     }
+  }
+  @media all and (max-width: 550px) {
+    padding: 20px 0;
+  }
+`;
+const ArticleTexts = styled.div`
+  width: 100%;
+  &#havePhoto {
+    width: 70%;
+  }
+`;
+const ArticleContent = styled.div`
+  margin: 20px 0 45px;
+  color: #7c7c7c;
+  font-size: 15px;
+  text-align: justify;
+  @media all and (max-width: 550px) {
+    margin: 20px 0 30px;
+  }
+`;
+const Date = styled.div`
+  font-size: 14px;
+  color: #7c7c7c;
+  @media all and (max-width: 550px) {
+    text-align: right;
   }
 `;

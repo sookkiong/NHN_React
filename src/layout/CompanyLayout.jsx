@@ -76,7 +76,7 @@ const CompanyLayout = () => {
       <Footer>
         <FooterLeft>
           <FLogo>
-            <img src="/img/f_logo.png" alt="footer 로고" />
+            <img src="/img/f_logo.png" alt="footer 로고" width="100%" />
           </FLogo>
 
           <FLinkContainer>

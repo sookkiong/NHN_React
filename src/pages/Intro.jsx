@@ -279,7 +279,7 @@ export const IntroSpan = styled.span`
   font-weight: 500;
   letter-spacing: 3px;
   &#explain {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     letter-spacing: 1px;
   }
@@ -692,7 +692,11 @@ export const FooterLeft = styled.div`
 export const FooterRight = styled.div`
   display: flex;
 `;
-export const FLogo = styled.div``;
+export const FLogo = styled.div`
+  @media all and (max-width: 960px) {
+    width: 50px;
+  }
+`;
 
 export const FLinkContainer = styled.ul`
   list-style: none;
@@ -729,5 +733,7 @@ export const Fsns = styled.a`
   background-size: contain;
   @media all and (max-width: 960px) {
     margin-left: 20px;
+    width: 18px;
+    height: 18px;
   }
 `;

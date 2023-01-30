@@ -124,9 +124,9 @@ export default Service;
 
 const Container = styled.div`
   background-color: #e72f2c;
-  padding: 0 10% 160px;
+  padding: 0 10% 140px;
   @media all and (max-width: 550px) {
-    padding-bottom: 100px;
+    padding-bottom: 70px;
   }
 `;
 
@@ -162,7 +162,7 @@ const TagContainerMob = styled.div`
   @media all and (max-width: 550px) {
     display: grid;
     grid-template-columns: 48% 48%;
-    margin-top: 30px;
+    margin-top: 60px;
     justify-content: space-between;
   }
 `;
@@ -237,7 +237,7 @@ const Tag = styled.div`
     font-size: 2rem;
     border: 3px solid #fff;
   }
-  @media all and (max-width: 724px) {
+  @media all and (max-width: 730px) {
     font-size: 1.3rem;
     border: 2px solid #fff;
   }

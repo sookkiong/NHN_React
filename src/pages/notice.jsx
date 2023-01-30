@@ -23,26 +23,19 @@ const Notice = () => {
   }, [id]);
 
   return (
-    <div style={{ background: "#e72f2c", paddingTop: "30px" }}>
-      <div
-        style={{
-          background: "#fff",
-          width: "70%",
-          margin: "0 auto 160px",
-          padding: "85px",
-        }}
-      >
+    <PageBg>
+      <WhiteWrapper>
         <Title>{nowNotice.title}</Title>
         <Date>{nowNotice.date}</Date>
         <Content>{nowNotice.content}</Content>
 
         <GoBack onClick={() => navigate("/recruit")}>목록</GoBack>
-      </div>
+      </WhiteWrapper>
 
       <Footer>
         <FContainer>
           <FLogo>
-            <img src="/img/logo.png" />
+            <img src="/img/logo.png" width="100%" alt="footer 로고" />
           </FLogo>
           <FLinkContainer>
             <FList>
@@ -85,12 +78,31 @@ const Notice = () => {
           ></Fsns>
         </FContainer>
       </Footer>
-    </div>
+    </PageBg>
   );
 };
 
 export default Notice;
 
+const PageBg = styled.div`
+  background: #e72f2c;
+  padding-top: 30px;
+`;
+const WhiteWrapper = styled.div`
+  background: #fff;
+  width: 70%;
+  margin: 0 auto 160px;
+  padding: 85px;
+  @media all and (max-width: 960px) {
+    width: 80%;
+    padding: 60px;
+  }
+  @media all and (max-width: 550px) {
+    width: 80%;
+    padding: 40px;
+    margin-bottom: 100px;
+  }
+`;
 const Title = styled.div`
   font-weight: 600;
   font-size: 18px;

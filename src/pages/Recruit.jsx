@@ -9,7 +9,7 @@ import {
   Footer,
   Fsns,
 } from "./service";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Recruit = () => {
   let navigate = useNavigate();
@@ -17,28 +17,12 @@ const Recruit = () => {
   return (
     <>
       <Container>
-        <Title>
+        <TitleWrap>
           <div>
-            <span
-              style={{
-                color: "#fff",
-                fontSize: "56px",
-                fontWeight: "500",
-                letterSpacing: "1.8px",
-              }}
-            >
-              채용공고
-            </span>
-            <span
-              style={{
-                display: "block",
-                color: "#fff",
-                letterSpacing: "1.8px",
-                paddingTop: "10px",
-              }}
-            >
+            <Title>채용공고</Title>
+            <Explain>
               놀이가 작품이 되고, 상상이 현실이 되는 곳에서 함께 성장하세요!
-            </span>
+            </Explain>
           </div>
 
           <GoMain
@@ -50,20 +34,18 @@ const Recruit = () => {
           >
             채용 사이트 바로가기
           </GoMain>
-        </Title>
+        </TitleWrap>
 
         <Cards>
           {card.map((value) => {
             return (
-              <>
-                <Card bg={value.id}>
-                  <Category>{value.category}</Category>
-                  <Content id={"card" + value.id} bg={value.id}>
-                    {value.content}
-                  </Content>
-                  <Detail>{value.detail}</Detail>
-                </Card>
-              </>
+              <Card bg={value.id}>
+                <Category>{value.category}</Category>
+                <Content id={"card" + value.id} bg={value.id}>
+                  {value.content}
+                </Content>
+                <Detail>{value.detail}</Detail>
+              </Card>
             );
           })}
         </Cards>
@@ -78,7 +60,7 @@ const Recruit = () => {
                     onClick={() => navigate(`/recruit/notice?id=${value.id}`)}
                   >
                     <Td id="under">{value.title}</Td>
-                    <Td>{value.date}</Td>
+                    <Td id="date">{value.date}</Td>
                   </Tr>
                 );
               })}
@@ -104,7 +86,7 @@ const Recruit = () => {
                 return (
                   <Tr onClick={() => window.open(value.url)}>
                     <Td id="under">{value.title}</Td>
-                    <Td>{value.date}</Td>
+                    <Td id="date">{value.date}</Td>
                   </Tr>
                 );
               })}
@@ -116,7 +98,7 @@ const Recruit = () => {
       <Footer>
         <FContainer>
           <FLogo>
-            <img src="/img/logo.png" />
+            <img src="/img/logo.png" alt="footer 로고" width="100%" />
           </FLogo>
           <FLinkContainer>
             <FList>
@@ -168,13 +150,33 @@ export default Recruit;
 const Container = styled.div`
   background-color: #e72f2c;
   padding: 0 16%;
+  @media all and (max-width: 960px) {
+    padding: 0 10%;
+  }
 `;
 
-const Title = styled.div`
+const TitleWrap = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 80px 0 30px;
   align-items: flex-end;
+  @media all and (max-width: 960px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+`;
+const Title = styled.span`
+  color: #fff;
+  font-size: 56px;
+  font-weight: 500;
+  letter-spacing: 1.8px;
+`;
+const Explain = styled.span`
+  display: block;
+  color: #fff;
+  letter-spacing: 1.8px;
+  padding-top: 10px;
 `;
 
 const GoMain = styled.button`
@@ -190,6 +192,9 @@ const GoMain = styled.button`
     color: #000;
     font-weight: 600;
   }
+  @media all and (max-width: 960px) {
+    margin-top: 20px;
+  }
 `;
 
 const Cards = styled.ul`
@@ -200,7 +205,19 @@ const Cards = styled.ul`
   display: flex;
   justify-content: space-between;
   width: 90%;
-  height: 460px;
+  height: 30rem;
+  @media all and (max-width: 1315px) {
+    width: 100%;
+    padding-top: 0px;
+    height: fit-content;
+    margin: 60px 0;
+  }
+  @media all and (max-width: 686px) {
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    margin-top: 50px;
+  }
 `;
 
 const Card = styled.li`
@@ -210,20 +227,40 @@ const Card = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 3.8%;
+  padding: 0 2.2rem;
+  @media all and (max-width: 1315px) {
+    padding: 0 1.5rem;
+    height: fit-content;
+    width: 30%;
+    height: 300px;
+  }
+  @media all and (max-width: 686px) {
+    width: 300px;
+    height: 360px;
+    margin-bottom: 20px;
+    padding: 0 2.5rem;
+  }
 `;
 
 const Category = styled.span`
   padding-bottom: 20px;
   display: block;
   font-weight: 500;
+  @media all and (max-width: 960px) {
+    font-size: 13px;
+    padding-bottom: 10px;
+  }
+  @media all and (max-width: 686px) {
+    padding-bottom: 20px;
+  }
 `;
 
 const Content = styled.span`
   display: block;
-  font-size: 23px;
+  font-size: 26px;
   font-weight: 600;
-  background: url("/img/cardbg${(props) => props.bg}.png") no-repeat 83% center;
+  background: url("/img/cardbg${(props) => props.bg}.png") no-repeat right
+    center;
   background-size: 11% auto;
   &#card2 {
     background-size: 17% auto;
@@ -231,11 +268,26 @@ const Content = styled.span`
   &#card3 {
     background-size: 18% auto;
   }
+  @media all and (max-width: 1315px) {
+    font-size: 20px;
+  }
+  @media all and (max-width: 960px) {
+    font-size: 18px;
+  }
 `;
 const Detail = styled.span`
   padding-top: 35px;
   display: block;
   color: #7c7c7c;
+  @media all and (max-width: 1315px) {
+    padding-top: 20px;
+  }
+  @media all and (max-width: 960px) {
+    font-size: 14px;
+  }
+  @media all and (max-width: 686px) {
+    padding-top: 40px;
+  }
 `;
 
 const NoticeNRecruit = styled.div`
@@ -244,10 +296,22 @@ const NoticeNRecruit = styled.div`
   padding: 80px 0;
   width: 100%;
   margin: 0 auto;
+  @media all and (max-width: 960px) {
+    padding-top: 0;
+  }
+  @media all and (max-width: 686px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: start-end;
+  }
 `;
 
 const NRWrap = styled.div`
-  width: 40%;
+  width: 45%;
+  @media all and (max-width: 686px) {
+    width: 100%;
+    margin-bottom: 15px;
+  }
 `;
 const NRTitle = styled.span`
   color: #fff;
@@ -282,6 +346,16 @@ const Tr = styled.tr`
       text-decoration: underline;
     }
   }
+  @media all and (max-width: 1315px) {
+    font-size: 15px;
+  }
 `;
-
-const Td = styled.td``;
+const Td = styled.td`
+  &#under {
+    width: 80%;
+  }
+  &#date {
+    font-size: 13px;
+    font-weight: 300;
+  }
+`;
